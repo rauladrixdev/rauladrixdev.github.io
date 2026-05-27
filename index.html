@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raúl Adriano | Desenvolvedor</title>
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- CURSOR CUSTOMIZADO -->
+  <div class="cursor"></div>
+  <div class="cursor-dot"></div>
+
+  <!-- SPLASH SCREEN -->
+  <div class="splash-screen" id="splash">
+    <div class="splash-r">R</div>
+    <div class="splash-rings">
+      <div class="ring ring1"></div>
+      <div class="ring ring2"></div>
+      <div class="ring ring3"></div>
+    </div>
+  </div>
+
+  <!-- SITE PRINCIPAL -->
+  <div class="main-site" id="mainSite">
+
+    <!-- HEADER -->
+    <header class="header">
+      <a href="#inicio" class="logo"><span>R</span></a>
+      <nav class="navbar" id="navbar">
+        <a href="#inicio" class="active">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <!-- Botão hamburguer: visível só no mobile (via CSS) -->
+      <div class="menu-btn" id="menuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
+    <!-- Overlay escuro atrás do menu mobile -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- HOME -->
+    <section class="home" id="inicio">
+      <div class="home-content">
+        <h3>Olá, eu sou</h3>
+        <h1>Raúl Adriano</h1>
+        <h3>E sou <span class="texto-digitando"></span></h3>
+        <p>
+          Desenvolvedor focado em Backend e Frontend, estudante de
+          Análise e Desenvolvimento de Sistemas na UNICID.
+          Trabalho com Python, Java, SQL, HTML, CSS e JavaScript,
+          construindo projetos reais para evoluir no mercado de tecnologia.
+        </p>
+        <div class="redes-sociais">
+          <a href="https://linkedin.com/in/raul-adriano" target="_blank">
+            <i class='bx bxl-linkedin'></i>
+          </a>
+          <a href="https://github.com/rauladrixdev" target="_blank">
+            <i class='bx bxl-github'></i>
+          </a>
+        </div>
+        <a href="#" class="btn">Baixar Currículo</a>
+      </div>
+
+      <div class="home-img">
+        <!--
+          Coloque sua foto em: imagens/home.jpg
+          Se não existir, o avatar com "R" aparece no lugar automaticamente.
+        -->
+        <img
+          src="imagens/home.jpg"
+          alt="Raúl Adriano"
+          id="fotoHome"
+          onerror="this.style.display='none'; document.getElementById('avatarHome').style.display='flex';"
+        />
+        <div class="avatar-fallback" id="avatarHome" style="display:none;">R</div>
+      </div>
+    </section>
+
+    <!-- SOBRE MIM -->
+    <section class="sobre" id="sobre">
+      <h2 class="titulo-secao">Sobre <span>Mim</span></h2>
+      <div class="sobre-container">
+        <div class="sobre-img">
+          <div class="avatar-sobre">R</div>
+        </div>
+        <div class="sobre-content">
+          <h3>Olá! Sou o Raúl Adriano 👋</h3>
+          <p>
+            Tenho 19 anos, sou de São Paulo e estudo Análise e
+            Desenvolvimento de Sistemas na UNICID, com formatura
+            prevista para dezembro de 2026.
+          </p>
+          <p>
+            Foco em desenvolvimento Backend com Python e Java,
+            e Frontend com HTML, CSS e JavaScript. Tenho projetos
+            reais no GitHub, incluindo uma API de autenticação,
+            um Data Warehouse com Curva ABC em SQL Server e um
+            dashboard de vendas em Power BI.
+          </p>
+          <a href="#" class="btn">Baixar Currículo</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- HABILIDADES -->
+    <!--
+      SEM BARRAS DE PORCENTAGEM.
+      Cada card tem um rótulo honesto no lugar do número fake.
+      Exemplos de rótulos usados:
+        "Projetos práticos"  → já usou em projetos reais
+        "Em aprendizado"     → ainda estudando ativamente
+        "Uso frequente"      → usa no dia a dia
+    -->
+    <section class="habilidades" id="habilidades">
+      <h2 class="titulo-secao">Minhas <span>Habilidades</span></h2>
+      <div class="habilidades-grid">
+
+        <div class="habilidade-card">
+          <i class='bx bxl-python'></i>
+          <h3>Python</h3>
+          <span class="nivel">Projetos práticos</span>
+        </div>
+
+        <div class="habilidade-card">
+          <i class='bx bxl-java'></i>
+          <h3>Java</h3>
+          <span class="nivel">Em aprendizado</span>
+        </div>
+
+        <div class="habilidade-card">
+          <i class='bx bx-data'></i>
+          <h3>SQL Server</h3>
+          <span class="nivel">Projetos práticos</span>
+        </div>
+
+        <div class="habilidade-card">
+          <i class='bx bxl-html5'></i>
+          <h3>HTML & CSS</h3>
+          <span class="nivel">Uso frequente</span>
+        </div>
+
+        <div class="habilidade-card">
+          <i class='bx bxl-javascript'></i>
+          <h3>JavaScript</h3>
+          <span class="nivel">Projetos práticos</span>
+        </div>
+
+        <div class="habilidade-card">
+          <i class='bx bxl-git'></i>
+          <h3>Git & GitHub</h3>
+          <span class="nivel">Uso frequente</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PORTFÓLIO -->
+    <section class="portfolio" id="portfolio">
+      <h2 class="titulo-secao">Meu <span>Portfólio</span></h2>
+      <div class="portfolio-grid">
+
+        <!-- CARD 1: Data Warehouse -->
+        <div class="portfolio-card sem-imagem">
+          <div class="card-icone">
+            <i class='bx bx-data'></i>
+          </div>
+          <div class="portfolio-info">
+            <h3>Data Warehouse Curva ABC</h3>
+            <p>
+              Segmentação de clientes em classes A, B e C com base no
+              impacto na receita, usando SQL Server, CTEs e views.
+            </p>
+            <div class="portfolio-tags">
+              <span>SQL Server</span>
+              <span>Data Warehouse</span>
+              <span>CTE</span>
+            </div>
+            <a href="https://github.com/rauladrixdev" target="_blank" class="btn-card">
+              Ver no GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 2: Auth Customer API -->
+        <div class="portfolio-card sem-imagem">
+          <div class="card-icone">
+            <i class='bx bx-server'></i>
+          </div>
+          <div class="portfolio-info">
+            <h3>Auth Customer API</h3>
+            <p>
+              API REST de autenticação de clientes desenvolvida em Python,
+              com endpoints de registro, login e validação de token.
+            </p>
+            <div class="portfolio-tags">
+              <span>Python</span>
+              <span>API REST</span>
+              <span>Backend</span>
+            </div>
+            <a href="https://github.com/rauladrixdev/auth-customer-api" target="_blank" class="btn-card">
+              Ver no GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 3: Dashboard de Vendas -->
+        <div class="portfolio-card sem-imagem">
+          <div class="card-icone">
+            <i class='bx bx-bar-chart-alt-2'></i>
+          </div>
+          <div class="portfolio-info">
+            <h3>Dashboard de Vendas</h3>
+            <p>
+              Análise de vendas com KPIs, distribuição por estado
+              e canais. Desenvolvido em Power BI com modelagem em estrela.
+            </p>
+            <div class="portfolio-tags">
+              <span>Power BI</span>
+              <span>SQL</span>
+              <span>Data Analytics</span>
+            </div>
+            <a href="https://github.com/rauladrixdev" target="_blank" class="btn-card">
+              Ver no GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- CARD 4: Portfólio Responsivo -->
+        <div class="portfolio-card sem-imagem">
+          <div class="card-icone">
+            <i class='bx bx-code-alt'></i>
+          </div>
+          <div class="portfolio-info">
+            <h3>Portfólio Responsivo</h3>
+            <p>
+              Site pessoal com splash screen, animações CSS,
+              efeito de digitação e design responsivo.
+            </p>
+            <div class="portfolio-tags">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>Frontend</span>
+            </div>
+            <a href="https://github.com/rauladrixdev" target="_blank" class="btn-card">
+              Ver no GitHub
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="contato" id="contato">
+      <h2 class="titulo-secao">Entre em <span>Contato</span></h2>
+      <div class="contato-container">
+
+        <div class="contato-info">
+          <div class="contato-item">
+            <i class='bx bx-envelope'></i>
+            <div>
+              <h3>Email</h3>
+              <p>raum.adrix@icloud.com</p>
+            </div>
+          </div>
+          <div class="contato-item">
+            <i class='bx bxl-whatsapp'></i>
+            <div>
+              <h3>WhatsApp</h3>
+              <p>Disponível via LinkedIn</p>
+            </div>
+          </div>
+          <div class="contato-item">
+            <i class='bx bxl-linkedin'></i>
+            <div>
+              <h3>LinkedIn</h3>
+              <p>linkedin.com/in/raul-adriano</p>
+            </div>
+          </div>
+          <div class="contato-item">
+            <i class='bx bxl-github'></i>
+            <div>
+              <h3>GitHub</h3>
+              <p>github.com/rauladrixdev</p>
+            </div>
+          </div>
+        </div>
+
+       <div class="contato-form">
+          <input type="text" placeholder="Seu nome" />
+          <input type="email" placeholder="Seu email" />
+          <textarea placeholder="Sua mensagem" rows="5"></textarea>
+          <a href="mailto:raum.adrix@icloud.com" class="btn">
+            Enviar por Email
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer class="footer">
+      <p>Desenvolvido por <span>Raúl Adriano</span> © 2025</p>
+      <div class="footer-redes">
+        <a href="https://linkedin.com/in/raul-adriano" target="_blank">
+          <i class='bx bxl-linkedin'></i>
+        </a>
+        <a href="https://github.com/rauladrixdev" target="_blank">
+          <i class='bx bxl-github'></i>
+        </a>
+      </div>
+    </footer>
+
+  </div><!-- fim main-site -->
+
+  <script src="script.js"></script>
+
+</body>
+</html>
+
+
+
