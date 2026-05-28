@@ -1,10 +1,10 @@
-/* ================================================
-   FONTE
-================================================ */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
 /* ================================================
    RESET GLOBAL
+   Remove margens e paddings padrão do navegador.
+   box-sizing: border-box faz o padding não
+   aumentar o tamanho do elemento.
 ================================================ */
 * {
     margin: 0;
@@ -14,6 +14,9 @@
     scroll-behavior: smooth;
 }
 
+/* ================================================
+   BODY
+================================================ */
 body {
     background-color: #0a0a0a;
     color: #ffffff;
@@ -22,7 +25,7 @@ body {
 }
 
 /* ================================================
-   FUNDO ANIMADO
+   FUNDO COM GRADIENTE ANIMADO
 ================================================ */
 body::before {
     content: '';
@@ -43,6 +46,7 @@ body::before {
 
 /* ================================================
    CURSOR CUSTOMIZADO
+   Escondido no mobile pois não há mouse.
 ================================================ */
 .cursor {
     width: 20px; height: 20px;
@@ -65,6 +69,8 @@ body::before {
 
 /* ================================================
    SPLASH SCREEN
+   Tela de abertura com o R animado.
+   Desaparece ao clicar.
 ================================================ */
 .splash-screen {
     position: fixed;
@@ -75,50 +81,17 @@ body::before {
     justify-content: center;
     align-items: center;
     z-index: 9998;
-    cursor: none;
+    cursor: pointer;
 }
 
-/* 
-   R 3D: combina duas técnicas —
-   1) text-shadow em camadas → cria profundidade/extrusão
-   2) rotateY + rotateX com perspective → balanço 3D real
-   O resultado parece um bloco sólido flutuando e girando.
-*/
 .splash-r {
-    font-size: 140px;
+    font-size: 120px;
     font-weight: 900;
     color: #0ef;
-
-    /* Extrusão 3D: 12 camadas de sombra deslocadas 1px cada
-       criam a ilusão de profundidade/volume no texto */
-    text-shadow:
-        1px  1px  0 #00c8d4,
-        2px  2px  0 #00b0bc,
-        3px  3px  0 #0098a4,
-        4px  4px  0 #00808c,
-        5px  5px  0 #006874,
-        6px  6px  0 #00505c,
-        7px  7px  0 #003844,
-        8px  8px  0 #00202c,
-        9px  9px  0 #001820,
-        10px 10px 0 #001018,
-        12px 12px 20px rgba(0,0,0,0.6),
-        0 0 40px rgba(0,238,255,0.5),
-        0 0 80px rgba(0,238,255,0.25);
-
-    /* Duas animações simultâneas:
-       balancoR → balanço 3D (rotação no eixo Y e X)
-       flutuarR → sobe e desce suavemente */
-    animation: balancoR 4s ease-in-out infinite,
-               flutuarR 3s ease-in-out infinite;
-
+    text-shadow: 0 0 30px #0ef, 0 0 60px #0ef;
+    animation: pulseR 1.5s ease-in-out infinite;
     z-index: 2;
     position: relative;
-
-    /* perspective() define a distância do observador.
-       Valores menores = perspectiva mais exagerada (mais 3D).
-       Aqui está inline na animação via transform. */
-    transform-style: preserve-3d;
 }
 
 .splash-rings {
@@ -126,44 +99,32 @@ body::before {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* Inclina os anéis para parecerem órbitas 3D */
-    transform: rotateX(70deg);
 }
 
 .ring {
     position: absolute;
     border-radius: 50%;
-    border: 2px solid rgba(0,238,255,0.4);
-    animation: orbitaRing 2.5s ease-out infinite;
-    box-shadow: 0 0 8px rgba(0,238,255,0.2);
+    border: 2px solid rgba(0,238,255,0.3);
+    animation: expandRing 2s ease-out infinite;
 }
 
-.ring1 { width: 180px; height: 180px; animation-delay: 0s; }
-.ring2 { width: 260px; height: 260px; animation-delay: 0.5s; }
-.ring3 { width: 360px; height: 360px; animation-delay: 1s; }
+.ring1 { width: 150px; height: 150px; animation-delay: 0s; }
+.ring2 { width: 220px; height: 220px; animation-delay: 0.4s; }
+.ring3 { width: 300px; height: 300px; animation-delay: 0.8s; }
 
-@keyframes orbitaRing {
-    0%   { transform: scale(0.7); opacity: 1; }
-    100% { transform: scale(1.4); opacity: 0; }
+@keyframes expandRing {
+    0%   { transform: scale(0.8); opacity: 1; }
+    100% { transform: scale(1.3); opacity: 0; }
 }
 
-/* Balanço 3D: oscila entre -20° e +20° no eixo Y
-   com leve inclinação no eixo X → parece flutuar em 3D */
-@keyframes balancoR {
-    0%   { transform: perspective(300px) rotateY(-20deg) rotateX(8deg); }
-    50%  { transform: perspective(300px) rotateY(20deg)  rotateX(-8deg); }
-    100% { transform: perspective(300px) rotateY(-20deg) rotateX(8deg); }
-}
-
-/* Flutuação vertical independente */
-@keyframes flutuarR {
-    0%, 100% { margin-top: 0; }
-    50%       { margin-top: -20px; }
+@keyframes pulseR {
+    0%, 100% { transform: scale(1); }
+    50%       { transform: scale(1.05); text-shadow: 0 0 60px #0ef, 0 0 100px #0ef; }
 }
 
 @keyframes splashSair {
-    0%   { opacity: 1; transform: scale(1) perspective(300px) rotateY(0deg); }
-    100% { opacity: 0; transform: scale(0.8) perspective(300px) rotateY(90deg); }
+    0%   { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(1.1); }
 }
 
 .splash-screen::after {
@@ -182,7 +143,8 @@ body::before {
 }
 
 /* ================================================
-   ANIMAÇÃO ENTRADA DO SITE
+   SITE PRINCIPAL
+   Animação de entrada após fechar a splash screen.
 ================================================ */
 @keyframes fadeInSite {
     from { opacity: 0; transform: translateY(20px); }
@@ -191,6 +153,7 @@ body::before {
 
 /* ================================================
    HEADER
+   Fixo no topo com blur de fundo.
 ================================================ */
 .header {
     position: fixed;
@@ -204,8 +167,18 @@ body::before {
     background: rgba(10,10,10,0.85);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0,238,255,0.1);
+    animation: slideDown 0.8s ease forwards;
 }
 
+@keyframes slideDown {
+    from { transform: translateY(-100px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+}
+
+/* ================================================
+   LOGO R
+   Círculo com a letra R. Gira ao passar o mouse.
+================================================ */
 .logo {
     width: 55px; height: 55px;
     display: flex;
@@ -224,6 +197,8 @@ body::before {
     font-weight: 900;
     color: #0ef;
     transition: 0.4s;
+    position: relative;
+    z-index: 1;
 }
 
 .logo::before {
@@ -233,13 +208,15 @@ body::before {
     width: 100%; height: 100%;
     background: #0ef;
     transition: 0.4s;
-    z-index: 0;
 }
 
-.logo:hover::before { left: 0; }
-.logo:hover span    { color: #0a0a0a; position: relative; z-index: 1; }
-.logo:hover         { box-shadow: 0 0 30px #0ef; transform: rotate(360deg); }
+.logo:hover::before  { left: 0; }
+.logo:hover span     { color: #0a0a0a; }
+.logo:hover          { box-shadow: 0 0 30px #0ef; transform: rotate(360deg); }
 
+/* ================================================
+   NAVBAR
+================================================ */
 .navbar a {
     font-size: 15px;
     color: #cccccc;
@@ -267,6 +244,7 @@ body::before {
 
 /* ================================================
    TÍTULO DE SEÇÃO
+   Usado em todas as seções.
 ================================================ */
 .titulo-secao {
     text-align: center;
@@ -328,6 +306,7 @@ body::before {
     animation: fadeInLeft 1s ease 0.6s forwards;
 }
 
+/* Cursor piscante do efeito de digitação */
 .texto-digitando {
     color: #0ef;
     -webkit-text-fill-color: #0ef;
@@ -347,12 +326,12 @@ body::before {
 
 @keyframes fadeInLeft {
     from { transform: translateX(-80px); opacity: 0; }
-    to   { transform: translateX(0);     opacity: 1; }
+    to   { transform: translateX(0); opacity: 1; }
 }
 
 @keyframes fadeInRight {
     from { transform: translateX(80px); opacity: 0; }
-    to   { transform: translateX(0);    opacity: 1; }
+    to   { transform: translateX(0); opacity: 1; }
 }
 
 /* ================================================
@@ -400,7 +379,7 @@ body::before {
 .redes-sociais a i { position: relative; z-index: 1; }
 
 /* ================================================
-   BOTÃO
+   BOTÃO PRINCIPAL
 ================================================ */
 .btn {
     display: inline-block;
@@ -428,13 +407,14 @@ body::before {
 }
 
 /* ================================================
-   IMAGEM / AVATAR DA HOME
+   IMAGEM / AVATAR HOME
+   A foto flutua e pulsa com brilho.
+   Se a foto não carregar, mostra o avatar com R.
 ================================================ */
 .home-img {
     opacity: 0;
     animation: fadeInRight 1s ease 0.5s forwards;
     position: relative;
-    flex-shrink: 0;
 }
 
 .home-img::before {
@@ -551,8 +531,7 @@ body::before {
 
 /* ================================================
    HABILIDADES
-   Sem barras de porcentagem.
-   Usa .nivel como rótulo descritivo.
+   Rótulos descritivos no lugar de porcentagens.
 ================================================ */
 .habilidades {
     padding: 80px 10%;
@@ -598,7 +577,6 @@ body::before {
     font-weight: 600;
 }
 
-/* Rótulo descritivo — substitui a barra de porcentagem */
 .nivel {
     display: inline-block;
     font-size: 12px;
@@ -813,25 +791,17 @@ body::before {
 }
 
 /* ================================================
-   RESPONSIVIDADE MOBILE
-   @media: aplica o CSS só quando a tela for
-   menor que o valor definido (max-width).
-   768px = tablet / celular grande
-   480px = celular pequeno
+   RESPONSIVIDADE
+   max-width: 768px → tablet e celular
+   max-width: 480px → celular pequeno
 ================================================ */
-
-/* ===== TABLET E CELULAR (até 768px) ===== */
 @media (max-width: 768px) {
 
-    /* HEADER: esconde navbar e mostra botão hamburguer */
-    .header {
-        padding: 16px 6%;
-    }
+    .header { padding: 16px 6%; }
 
     .navbar {
         position: fixed;
         top: 0; right: -100%;
-        /* começa fora da tela pela direita */
         width: 70%;
         height: 100vh;
         background: rgba(10,10,10,0.98);
@@ -843,21 +813,16 @@ body::before {
         align-items: center;
         gap: 40px;
         transition: right 0.4s ease;
-        /* desliza para dentro */
         z-index: 200;
     }
 
-    /* Classe adicionada pelo JS ao clicar no hamburguer */
-    .navbar.aberta {
-        right: 0;
-    }
+    .navbar.aberta { right: 0; }
 
     .navbar a {
         font-size: 20px;
         margin-left: 0;
     }
 
-    /* Botão hamburguer (3 linhas) */
     .menu-btn {
         display: flex;
         flex-direction: column;
@@ -868,25 +833,16 @@ body::before {
 
     .menu-btn span {
         display: block;
-        width: 25px;
-        height: 2px;
+        width: 25px; height: 2px;
         background: #0ef;
         border-radius: 2px;
         transition: 0.4s;
     }
 
-    /* Anima o hamburguer em X quando menu está aberto */
-    .menu-btn.ativo span:nth-child(1) {
-        transform: translateY(7px) rotate(45deg);
-    }
-    .menu-btn.ativo span:nth-child(2) {
-        opacity: 0;
-    }
-    .menu-btn.ativo span:nth-child(3) {
-        transform: translateY(-7px) rotate(-45deg);
-    }
+    .menu-btn.ativo span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .menu-btn.ativo span:nth-child(2) { opacity: 0; }
+    .menu-btn.ativo span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-    /* Overlay escuro atrás do menu */
     .menu-overlay {
         display: none;
         position: fixed;
@@ -896,83 +852,47 @@ body::before {
         z-index: 150;
     }
 
-    .menu-overlay.ativo {
-        display: block;
-    }
+    .menu-overlay.ativo { display: block; }
 
-    /* HOME: empilha vertical */
+    .cursor,
+    .cursor-dot { display: none; }
+
     .home {
         flex-direction: column-reverse;
-        /* foto aparece em cima do texto */
         padding: 120px 6% 60px;
         text-align: center;
         gap: 40px;
     }
 
-    .home-content h1 {
-        font-size: 36px;
-    }
+    .home-content h1 { font-size: 36px; }
+    .home-content h3 { font-size: 18px; }
+    .home-content h3:nth-of-type(2) { font-size: 20px; }
+    .home-content p  { font-size: 14px; max-width: 100%; }
 
-    .home-content h3 {
-        font-size: 18px;
-    }
+    .redes-sociais { justify-content: center; }
 
-    .home-content h3:nth-of-type(2) {
-        font-size: 20px;
-    }
-
-    .home-content p {
-        font-size: 14px;
-        max-width: 100%;
-    }
-
-    .redes-sociais {
-        justify-content: center;
-    }
-
-    /* Foto menor no mobile */
     .home-img img,
     .avatar-fallback {
-        width: 220px;
-        height: 220px;
+        width: 220px; height: 220px;
         font-size: 65px;
     }
 
-    /* SOBRE: empilha vertical */
     .sobre-container {
         flex-direction: column;
         text-align: center;
     }
 
     .avatar-sobre {
-        width: 200px;
-        height: 200px;
+        width: 200px; height: 200px;
         font-size: 55px;
         margin: 0 auto;
     }
 
-    /* HABILIDADES: 1 coluna */
-    .habilidades-grid {
-        grid-template-columns: 1fr;
-    }
+    .habilidades-grid    { grid-template-columns: 1fr; }
+    .portfolio-grid      { grid-template-columns: 1fr; }
+    .contato-container   { grid-template-columns: 1fr; gap: 40px; }
+    .titulo-secao        { font-size: 30px; }
 
-    /* PORTFÓLIO: 1 coluna */
-    .portfolio-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* CONTATO: 1 coluna */
-    .contato-container {
-        grid-template-columns: 1fr;
-        gap: 40px;
-    }
-
-    /* TÍTULO DAS SEÇÕES: menor */
-    .titulo-secao {
-        font-size: 30px;
-    }
-
-    /* RODAPÉ: empilha vertical */
     .footer {
         flex-direction: column;
         gap: 16px;
@@ -981,17 +901,13 @@ body::before {
     }
 }
 
-/* ===== CELULAR PEQUENO (até 480px) ===== */
 @media (max-width: 480px) {
 
-    .home-content h1 {
-        font-size: 28px;
-    }
+    .home-content h1 { font-size: 28px; }
 
     .home-img img,
     .avatar-fallback {
-        width: 180px;
-        height: 180px;
+        width: 180px; height: 180px;
         font-size: 50px;
     }
 
@@ -1006,8 +922,4 @@ body::before {
     }
 }
 
-/* Esconde hamburguer no desktop */
-.menu-btn {
-    display: none;
-}
-
+.menu-btn { display: none; }
