@@ -38,14 +38,13 @@
         <a href="#portfolio">Portfólio</a>
         <a href="#contato">Contato</a>
       </nav>
-      <!-- Botão hamburguer: visível só no mobile (via CSS) -->
       <div class="menu-btn" id="menuBtn">
         <span></span>
         <span></span>
         <span></span>
       </div>
     </header>
-    <!-- Overlay escuro atrás do menu mobile -->
+
     <div class="menu-overlay" id="menuOverlay"></div>
 
     <!-- HOME -->
@@ -72,12 +71,9 @@
       </div>
 
       <div class="home-img">
-        <!--
-          Coloque sua foto em: imagens/home.jpg
-          Se não existir, o avatar com "R" aparece no lugar automaticamente.
-        -->
+        <!-- Foto de perfil -->
         <img
-          src="imagens/home.jpg"
+          src="home.jpg"
           alt="Raúl Adriano"
           id="fotoHome"
           onerror="this.style.display='none'; document.getElementById('avatarHome').style.display='flex';"
@@ -113,14 +109,6 @@
     </section>
 
     <!-- HABILIDADES -->
-    <!--
-      SEM BARRAS DE PORCENTAGEM.
-      Cada card tem um rótulo honesto no lugar do número fake.
-      Exemplos de rótulos usados:
-        "Projetos práticos"  → já usou em projetos reais
-        "Em aprendizado"     → ainda estudando ativamente
-        "Uso frequente"      → usa no dia a dia
-    -->
     <section class="habilidades" id="habilidades">
       <h2 class="titulo-secao">Minhas <span>Habilidades</span></h2>
       <div class="habilidades-grid">
@@ -169,7 +157,6 @@
       <h2 class="titulo-secao">Meu <span>Portfólio</span></h2>
       <div class="portfolio-grid">
 
-        <!-- CARD 1: Data Warehouse -->
         <div class="portfolio-card sem-imagem">
           <div class="card-icone">
             <i class='bx bx-data'></i>
@@ -191,7 +178,6 @@
           </div>
         </div>
 
-        <!-- CARD 2: Auth Customer API -->
         <div class="portfolio-card sem-imagem">
           <div class="card-icone">
             <i class='bx bx-server'></i>
@@ -213,7 +199,6 @@
           </div>
         </div>
 
-        <!-- CARD 3: Dashboard de Vendas -->
         <div class="portfolio-card sem-imagem">
           <div class="card-icone">
             <i class='bx bx-bar-chart-alt-2'></i>
@@ -235,7 +220,6 @@
           </div>
         </div>
 
-        <!-- CARD 4: Portfólio Responsivo -->
         <div class="portfolio-card sem-imagem">
           <div class="card-icone">
             <i class='bx bx-code-alt'></i>
@@ -252,8 +236,8 @@
               <span>JavaScript</span>
               <span>Frontend</span>
             </div>
-            <a href="https://github.com/rauladrixdev" target="_blank" class="btn-card">
-              Ver no GitHub
+            <a href="https://rauladrixdev.github.io/" target="_blank" class="btn-card">
+              Ver o Site
             </a>
           </div>
         </div>
@@ -297,7 +281,7 @@
           </div>
         </div>
 
-       <div class="contato-form">
+        <div class="contato-form">
           <input type="text" placeholder="Seu nome" />
           <input type="email" placeholder="Seu email" />
           <textarea placeholder="Sua mensagem" rows="5"></textarea>
@@ -322,12 +306,9 @@
       </div>
     </footer>
 
-  </div><!-- fim main-site -->
+  </div>
 
   <script src="script.js"></script>
 
 </body>
 </html>
-
-
-
