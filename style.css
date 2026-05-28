@@ -923,3 +923,19 @@ body::before {
 }
 
 .menu-btn { display: none; }
+
+.sobre-img img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #0ef;
+    box-shadow: 0 0 30px rgba(0,238,255,0.4);
+    transition: 0.4s;
+    flex-shrink: 0;
+}
+
+.sobre-img img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 60px rgba(0,238,255,0.8);
+}
