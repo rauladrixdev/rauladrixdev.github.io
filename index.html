@@ -7,6 +7,123 @@
   <title>Raúl Adriano | Desenvolvedor</title>
   <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── LANG SWITCHER ─────────────────────────────── */
+    .lang-switcher {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(0,238,255,0.06);
+      border: 1px solid rgba(0,238,255,0.2);
+      border-radius: 30px;
+      padding: 4px 6px;
+      margin-right: 12px;
+    }
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: #666;
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .lang-btn.ativo {
+      background: #0ef;
+      color: #0a0a0a;
+    }
+    .lang-btn:hover:not(.ativo) { color: #0ef; }
+
+    /* ── CV BUTTONS ────────────────────────────────── */
+    .cv-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 0;
+    }
+    .btn-cv {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 26px;
+      border-radius: 40px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.35s;
+      cursor: pointer;
+    }
+    .btn-cv-backend {
+      background: linear-gradient(135deg, #0ef, #00a8b5);
+      color: #0a0a0a;
+      box-shadow: 0 0 20px rgba(0,238,255,0.4);
+      border: 2px solid transparent;
+    }
+    .btn-cv-backend:hover {
+      background: transparent;
+      color: #0ef;
+      border-color: #0ef;
+      box-shadow: 0 0 30px rgba(0,238,255,0.6);
+      transform: translateY(-4px);
+    }
+    .btn-cv-frontend {
+      background: transparent;
+      color: #0ef;
+      border: 2px solid rgba(0,238,255,0.4);
+    }
+    .btn-cv-frontend:hover {
+      border-color: #0ef;
+      box-shadow: 0 0 20px rgba(0,238,255,0.3);
+      transform: translateY(-4px);
+    }
+
+    /* sobre-img fallback */
+    .sobre-img .avatar-sobre-img {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      border: 4px solid #0ef;
+      box-shadow: 0 0 30px rgba(0,238,255,0.4);
+      background: rgba(0,238,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+      font-weight: 900;
+      color: #0ef;
+      flex-shrink: 0;
+      transition: 0.4s;
+    }
+    .sobre-img .avatar-sobre-img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 60px rgba(0,238,255,0.8);
+    }
+    .sobre-img img {
+      width: 300px;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #0ef;
+      box-shadow: 0 0 30px rgba(0,238,255,0.4);
+      transition: 0.4s;
+      flex-shrink: 0;
+    }
+    .sobre-img img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 60px rgba(0,238,255,0.8);
+    }
+
+    /* nav-right wrapper */
+    .nav-right {
+      display: flex;
+      align-items: center;
+    }
+  </style>
 </head>
 
 <body>
@@ -32,16 +149,24 @@
     <header class="header">
       <a href="#inicio" class="logo"><span>R</span></a>
       <nav class="navbar" id="navbar">
-        <a href="#inicio" class="active">Início</a>
-        <a href="#sobre">Sobre</a>
-        <a href="#habilidades">Habilidades</a>
-        <a href="#portfolio">Portfólio</a>
-        <a href="#contato">Contato</a>
+        <a href="#inicio" class="active" data-pt="Início"      data-en="Home">Início</a>
+        <a href="#sobre"                  data-pt="Sobre"       data-en="About">Sobre</a>
+        <a href="#habilidades"            data-pt="Habilidades" data-en="Skills">Habilidades</a>
+        <a href="#portfolio"              data-pt="Portfólio"   data-en="Portfolio">Portfólio</a>
+        <a href="#contato"                data-pt="Contato"     data-en="Contact">Contato</a>
       </nav>
-      <div class="menu-btn" id="menuBtn">
-        <span></span>
-        <span></span>
-        <span></span>
+      <div class="nav-right">
+        <!-- Switcher PT/EN -->
+        <div class="lang-switcher">
+          <button class="lang-btn ativo" id="btnPT" onclick="setLang('pt')">PT</button>
+          <button class="lang-btn"       id="btnEN" onclick="setLang('en')">EN</button>
+        </div>
+        <!-- Hamburguer -->
+        <div class="menu-btn" id="menuBtn">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </header>
 
@@ -50,10 +175,11 @@
     <!-- HOME -->
     <section class="home" id="inicio">
       <div class="home-content">
-        <h3>Olá, eu sou</h3>
+        <h3 data-pt="Olá, eu sou" data-en="Hi, I'm">Olá, eu sou</h3>
         <h1>Raúl Adriano</h1>
-        <h3>E sou <span class="texto-digitando"></span></h3>
-        <p>
+        <h3 data-pt="E sou" data-en="I'm a">E sou <span class="texto-digitando"></span></h3>
+        <p data-pt="Desenvolvedor focado em Backend e Frontend, estudante de Análise e Desenvolvimento de Sistemas na UNICID. Trabalho com Python, Java, SQL, HTML, CSS e JavaScript, construindo projetos reais para evoluir no mercado de tecnologia."
+           data-en="Backend & Frontend developer, studying Systems Analysis and Development at UNICID. I work with Python, Java, SQL, HTML, CSS and JavaScript, building real projects to grow in the tech market.">
           Desenvolvedor focado em Backend e Frontend, estudante de
           Análise e Desenvolvimento de Sistemas na UNICID.
           Trabalho com Python, Java, SQL, HTML, CSS e JavaScript,
@@ -67,7 +193,17 @@
             <i class='bx bxl-github'></i>
           </a>
         </div>
-        <a href="#" class="btn">Baixar Currículo</a>
+        <!-- CV BUTTONS -->
+        <div class="cv-buttons">
+          <a href="Curriculo_Raul_Adriano_backend.pdf"  download class="btn-cv btn-cv-backend">
+            <i class='bx bx-download'></i>
+            <span data-pt="CV Backend" data-en="Backend CV">CV Backend</span>
+          </a>
+          <a href="Curriculo_Frontend_Raul_Adriano.pdf" download class="btn-cv btn-cv-frontend">
+            <i class='bx bx-download'></i>
+            <span data-pt="CV Frontend" data-en="Frontend CV">CV Frontend</span>
+          </a>
+        </div>
       </div>
 
       <div class="home-img">
@@ -83,69 +219,86 @@
 
     <!-- SOBRE MIM -->
     <section class="sobre" id="sobre">
-      <h2 class="titulo-secao">Sobre <span>Mim</span></h2>
+      <h2 class="titulo-secao" data-pt="Sobre <span>Mim</span>" data-en="About <span>Me</span>">Sobre <span>Mim</span></h2>
       <div class="sobre-container">
         <div class="sobre-img">
-          <img src="home.jpg" alt="Raúl Adriano" />
+          <img
+            src="home.jpg"
+            alt="Raúl Adriano"
+            onerror="this.style.display='none'; document.getElementById('avatarSobre').style.display='flex';"
+          />
+          <div class="avatar-sobre-img" id="avatarSobre" style="display:none;">R</div>
         </div>
         <div class="sobre-content">
-          <h3>Olá! Sou o Raúl Adriano 👋</h3>
-          <p>
+          <h3 data-pt="Olá! Sou o Raúl Adriano 👋" data-en="Hey! I'm Raúl Adriano 👋">Olá! Sou o Raúl Adriano 👋</h3>
+          <p data-pt="Tenho 19 anos, sou de São Paulo e estudo Análise e Desenvolvimento de Sistemas na UNICID, com formatura prevista para dezembro de 2026."
+             data-en="I'm 19 years old, from São Paulo, and I study Systems Analysis and Development at UNICID, with graduation expected in December 2026.">
             Tenho 19 anos, sou de São Paulo e estudo Análise e
             Desenvolvimento de Sistemas na UNICID, com formatura
             prevista para dezembro de 2026.
           </p>
-          <p>
+          <p data-pt="Foco em desenvolvimento Backend com Python e Java, e Frontend com HTML, CSS e JavaScript. Tenho projetos reais no GitHub, incluindo uma API de autenticação, um Data Warehouse com Curva ABC em SQL Server e um dashboard de vendas em Power BI."
+             data-en="Focused on Backend development with Python and Java, and Frontend with HTML, CSS and JavaScript. I have real GitHub projects including an authentication API, a Data Warehouse with ABC curve in SQL Server, and a Power BI sales dashboard.">
             Foco em desenvolvimento Backend com Python e Java,
             e Frontend com HTML, CSS e JavaScript. Tenho projetos
             reais no GitHub, incluindo uma API de autenticação,
             um Data Warehouse com Curva ABC em SQL Server e um
             dashboard de vendas em Power BI.
           </p>
-          <a href="#" class="btn">Baixar Currículo</a>
+          <!-- CV BUTTONS (sobre) -->
+          <div class="cv-buttons" style="margin-top:10px;">
+            <a href="Curriculo_Raul_Adriano_backend.pdf"  download class="btn-cv btn-cv-backend">
+              <i class='bx bx-download'></i>
+              <span data-pt="CV Backend" data-en="Backend CV">CV Backend</span>
+            </a>
+            <a href="Curriculo_Frontend_Raul_Adriano.pdf" download class="btn-cv btn-cv-frontend">
+              <i class='bx bx-download'></i>
+              <span data-pt="CV Frontend" data-en="Frontend CV">CV Frontend</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- HABILIDADES -->
     <section class="habilidades" id="habilidades">
-      <h2 class="titulo-secao">Minhas <span>Habilidades</span></h2>
+      <h2 class="titulo-secao" data-pt="Minhas <span>Habilidades</span>" data-en="My <span>Skills</span>">Minhas <span>Habilidades</span></h2>
       <div class="habilidades-grid">
 
         <div class="habilidade-card">
           <i class='bx bxl-python'></i>
           <h3>Python</h3>
-          <span class="nivel">Projetos práticos</span>
+          <span class="nivel" data-pt="Projetos práticos" data-en="Practical projects">Projetos práticos</span>
         </div>
 
         <div class="habilidade-card">
           <i class='bx bxl-java'></i>
           <h3>Java</h3>
-          <span class="nivel">Em aprendizado</span>
+          <span class="nivel" data-pt="Em aprendizado" data-en="In progress">Em aprendizado</span>
         </div>
 
         <div class="habilidade-card">
           <i class='bx bx-data'></i>
           <h3>SQL Server</h3>
-          <span class="nivel">Projetos práticos</span>
+          <span class="nivel" data-pt="Projetos práticos" data-en="Practical projects">Projetos práticos</span>
         </div>
 
         <div class="habilidade-card">
           <i class='bx bxl-html5'></i>
           <h3>HTML & CSS</h3>
-          <span class="nivel">Uso frequente</span>
+          <span class="nivel" data-pt="Uso frequente" data-en="Daily use">Uso frequente</span>
         </div>
 
         <div class="habilidade-card">
           <i class='bx bxl-javascript'></i>
           <h3>JavaScript</h3>
-          <span class="nivel">Projetos práticos</span>
+          <span class="nivel" data-pt="Projetos práticos" data-en="Practical projects">Projetos práticos</span>
         </div>
 
         <div class="habilidade-card">
           <i class='bx bxl-git'></i>
           <h3>Git & GitHub</h3>
-          <span class="nivel">Uso frequente</span>
+          <span class="nivel" data-pt="Uso frequente" data-en="Daily use">Uso frequente</span>
         </div>
 
       </div>
@@ -153,91 +306,74 @@
 
     <!-- PORTFÓLIO -->
     <section class="portfolio" id="portfolio">
-      <h2 class="titulo-secao">Meu <span>Portfólio</span></h2>
+      <h2 class="titulo-secao" data-pt="Meu <span>Portfólio</span>" data-en="My <span>Portfolio</span>">Meu <span>Portfólio</span></h2>
       <div class="portfolio-grid">
 
         <div class="portfolio-card sem-imagem">
-          <div class="card-icone">
-            <i class='bx bx-data'></i>
-          </div>
+          <div class="card-icone"><i class='bx bx-data'></i></div>
           <div class="portfolio-info">
-            <h3>Data Warehouse Curva ABC</h3>
-            <p>
+            <h3 data-pt="Data Warehouse Curva ABC" data-en="Data Warehouse ABC Curve">Data Warehouse Curva ABC</h3>
+            <p data-pt="Segmentação de clientes em classes A, B e C com base no impacto na receita, usando SQL Server, CTEs e views."
+               data-en="Customer segmentation into A, B and C classes based on revenue impact, using SQL Server, CTEs and views.">
               Segmentação de clientes em classes A, B e C com base no
               impacto na receita, usando SQL Server, CTEs e views.
             </p>
             <div class="portfolio-tags">
-              <span>SQL Server</span>
-              <span>Data Warehouse</span>
-              <span>CTE</span>
+              <span>SQL Server</span><span>Data Warehouse</span><span>CTE</span>
             </div>
-            <a href="https://github.com/rauladrixdev/dw-segmentacao-clientes-abc" target="_blank" class="btn-card">
-              Ver no GitHub
-            </a>
+            <a href="https://github.com/rauladrixdev/dw-segmentacao-clientes-abc" target="_blank" class="btn-card"
+               data-pt="Ver no GitHub" data-en="View on GitHub">Ver no GitHub</a>
           </div>
         </div>
 
         <div class="portfolio-card sem-imagem">
-          <div class="card-icone">
-            <i class='bx bx-server'></i>
-          </div>
+          <div class="card-icone"><i class='bx bx-server'></i></div>
           <div class="portfolio-info">
             <h3>Auth Customer API</h3>
-            <p>
+            <p data-pt="API REST de autenticação de clientes desenvolvida em Python, com endpoints de registro, login e validação de token."
+               data-en="Customer authentication REST API built with Python, FastAPI and JWT — registration, login and token validation endpoints.">
               API REST de autenticação de clientes desenvolvida em Python,
               com endpoints de registro, login e validação de token.
             </p>
             <div class="portfolio-tags">
-              <span>Python</span>
-              <span>API REST</span>
-              <span>Backend</span>
+              <span>Python</span><span>FastAPI</span><span>JWT</span><span>Backend</span>
             </div>
-            <a href="https://github.com/rauladrixdev/auth-customer-api" target="_blank" class="btn-card">
-              Ver no GitHub
-            </a>
+            <a href="https://github.com/rauladrixdev/auth-customer-api" target="_blank" class="btn-card"
+               data-pt="Ver no GitHub" data-en="View on GitHub">Ver no GitHub</a>
           </div>
         </div>
 
         <div class="portfolio-card sem-imagem">
-          <div class="card-icone">
-            <i class='bx bx-bar-chart-alt-2'></i>
-          </div>
+          <div class="card-icone"><i class='bx bx-bar-chart-alt-2'></i></div>
           <div class="portfolio-info">
-            <h3>Dashboard de Vendas</h3>
-            <p>
+            <h3 data-pt="Dashboard de Vendas" data-en="Sales Dashboard">Dashboard de Vendas</h3>
+            <p data-pt="Análise de vendas com KPIs, distribuição por estado e canais. Desenvolvido em Power BI com modelagem em estrela."
+               data-en="Sales analysis with KPIs, distribution by state and channels. Built in Power BI with star schema modelling.">
               Análise de vendas com KPIs, distribuição por estado
               e canais. Desenvolvido em Power BI com modelagem em estrela.
             </p>
             <div class="portfolio-tags">
-              <span>Power BI</span>
-              <span>SQL</span>
-              <span>Data Analytics</span>
+              <span>Power BI</span><span>DAX</span><span>Star Schema</span>
             </div>
-            <a href="https://github.com/rauladrixdev/dashboard-vendas-powerbi" target="_blank" class="btn-card">
-              Ver no GitHub
-            </a>
+            <a href="https://github.com/rauladrixdev/dashboard-vendas-powerbi" target="_blank" class="btn-card"
+               data-pt="Ver no GitHub" data-en="View on GitHub">Ver no GitHub</a>
           </div>
         </div>
 
         <div class="portfolio-card sem-imagem">
-          <div class="card-icone">
-            <i class='bx bx-code-alt'></i>
-          </div>
+          <div class="card-icone"><i class='bx bx-code-alt'></i></div>
           <div class="portfolio-info">
-            <h3>Portfólio Responsivo</h3>
-            <p>
+            <h3 data-pt="Portfólio Responsivo" data-en="Responsive Portfolio">Portfólio Responsivo</h3>
+            <p data-pt="Site pessoal com splash screen, animações CSS, efeito de digitação e design responsivo."
+               data-en="Personal site with splash screen, CSS animations, typing effect and responsive design.">
               Site pessoal com splash screen, animações CSS,
               efeito de digitação e design responsivo.
             </p>
             <div class="portfolio-tags">
-              <span>HTML</span>
-              <span>CSS</span>
-              <span>JavaScript</span>
-              <span>Frontend</span>
+              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Frontend</span>
             </div>
-            <a href="https://rauladrixdev.github.io/" target="_blank" class="btn-card">
-              Ver o Site
-            </a>
+            <a href="https://rauladrixdev.github.io/" target="_blank" class="btn-card"
+               data-pt="Ver o Site" data-en="View Site">Ver o Site</a>
           </div>
         </div>
 
@@ -246,7 +382,7 @@
 
     <!-- CONTATO -->
     <section class="contato" id="contato">
-      <h2 class="titulo-secao">Entre em <span>Contato</span></h2>
+      <h2 class="titulo-secao" data-pt="Entre em <span>Contato</span>" data-en="Get in <span>Touch</span>">Entre em <span>Contato</span></h2>
       <div class="contato-container">
 
         <div class="contato-info">
@@ -261,7 +397,7 @@
             <i class='bx bxl-whatsapp'></i>
             <div>
               <h3>WhatsApp</h3>
-              <p>Disponível via LinkedIn</p>
+              <p data-pt="Disponível via LinkedIn" data-en="Available via LinkedIn">Disponível via LinkedIn</p>
             </div>
           </div>
           <div class="contato-item">
@@ -281,12 +417,11 @@
         </div>
 
         <div class="contato-form">
-          <input type="text" placeholder="Seu nome" />
-          <input type="email" placeholder="Seu email" />
-          <textarea placeholder="Sua mensagem" rows="5"></textarea>
-          <a href="mailto:raum.adrix@icloud.com" class="btn">
-            Enviar por Email
-          </a>
+          <input type="text"   data-placeholder-pt="Seu nome"      data-placeholder-en="Your name"    placeholder="Seu nome" />
+          <input type="email"  data-placeholder-pt="Seu email"     data-placeholder-en="Your email"   placeholder="Seu email" />
+          <textarea rows="5"   data-placeholder-pt="Sua mensagem"  data-placeholder-en="Your message" placeholder="Sua mensagem"></textarea>
+          <a href="mailto:raum.adrix@icloud.com" class="btn"
+             data-pt="Enviar por Email" data-en="Send Email">Enviar por Email</a>
         </div>
 
       </div>
@@ -294,20 +429,126 @@
 
     <!-- RODAPÉ -->
     <footer class="footer">
-      <p>Desenvolvido por <span>Raúl Adriano</span> © 2025</p>
+      <p data-pt="Desenvolvido por <span>Raúl Adriano</span> © 2025"
+         data-en="Developed by <span>Raúl Adriano</span> © 2025">
+        Desenvolvido por <span>Raúl Adriano</span> © 2025
+      </p>
       <div class="footer-redes">
-        <a href="https://linkedin.com/in/raul-adriano" target="_blank">
-          <i class='bx bxl-linkedin'></i>
-        </a>
-        <a href="https://github.com/rauladrixdev" target="_blank">
-          <i class='bx bxl-github'></i>
-        </a>
+        <a href="https://linkedin.com/in/raul-adriano" target="_blank"><i class='bx bxl-linkedin'></i></a>
+        <a href="https://github.com/rauladrixdev" target="_blank"><i class='bx bxl-github'></i></a>
       </div>
     </footer>
 
-  </div>
+  </div><!-- /main-site -->
 
   <script src="script.js"></script>
+  <script>
+  // ================================================
+  // MENU HAMBURGUER (fix — faltava no script.js)
+  // ================================================
+  const menuBtn     = document.getElementById('menuBtn');
+  const navbar      = document.getElementById('navbar');
+  const menuOverlay = document.getElementById('menuOverlay');
+
+  function fecharMenu() {
+    menuBtn.classList.remove('ativo');
+    navbar.classList.remove('aberta');
+    menuOverlay.classList.remove('ativo');
+  }
+
+  menuBtn.addEventListener('click', () => {
+    const aberto = navbar.classList.contains('aberta');
+    aberto ? fecharMenu() : (
+      menuBtn.classList.add('ativo'),
+      navbar.classList.add('aberta'),
+      menuOverlay.classList.add('ativo')
+    );
+  });
+
+  menuOverlay.addEventListener('click', fecharMenu);
+  navbar.querySelectorAll('a').forEach(link => link.addEventListener('click', fecharMenu));
+
+  // ================================================
+  // SWITCHER PT / EN
+  // ================================================
+  let idiomaAtual = 'pt';
+
+  function setLang(lang) {
+    idiomaAtual = lang;
+
+    // Botões do switcher
+    document.getElementById('btnPT').classList.toggle('ativo', lang === 'pt');
+    document.getElementById('btnEN').classList.toggle('ativo', lang === 'en');
+
+    // Elementos com data-pt / data-en (innerHTML)
+    document.querySelectorAll('[data-pt][data-en]').forEach(el => {
+      // pula inputs/textarea (usam placeholder)
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') return;
+      el.innerHTML = el.getAttribute('data-' + lang);
+    });
+
+    // Placeholders
+    document.querySelectorAll('[data-placeholder-pt]').forEach(el => {
+      el.placeholder = el.getAttribute('data-placeholder-' + lang);
+    });
+
+    // Texto digitando — reinicia com lista do idioma correto
+    reiniciarDigitacao(lang);
+
+    // <title>
+    document.title = lang === 'pt'
+      ? 'Raúl Adriano | Desenvolvedor'
+      : 'Raúl Adriano | Developer';
+  }
+
+  // ================================================
+  // TEXTO DIGITANDO — com suporte a PT/EN
+  // ================================================
+  const textosPT = ['Desenvolvedor Backend', 'Desenvolvedor Frontend', 'Full Stack Developer'];
+  const textosEN = ['Backend Developer',     'Frontend Developer',     'Full Stack Developer'];
+
+  let textoIndex = 0;
+  let charIndex  = 0;
+  let deletando  = false;
+  let timerDigitar = null;
+  const elDigitar = document.querySelector('.texto-digitando');
+
+  function reiniciarDigitacao(lang) {
+    clearTimeout(timerDigitar);
+    textoIndex = 0;
+    charIndex  = 0;
+    deletando  = false;
+    if (elDigitar) elDigitar.textContent = '';
+    timerDigitar = setTimeout(digitar, 400);
+  }
+
+  function digitar() {
+    if (!elDigitar) return;
+    const lista      = idiomaAtual === 'pt' ? textosPT : textosEN;
+    const textoAtual = lista[textoIndex];
+
+    if (!deletando) {
+      elDigitar.textContent = textoAtual.substring(0, charIndex + 1);
+      charIndex++;
+      if (charIndex === textoAtual.length) {
+        deletando = true;
+        timerDigitar = setTimeout(digitar, 2000);
+        return;
+      }
+    } else {
+      elDigitar.textContent = textoAtual.substring(0, charIndex - 1);
+      charIndex--;
+      if (charIndex === 0) {
+        deletando  = false;
+        textoIndex = (textoIndex + 1) % lista.length;
+      }
+    }
+    timerDigitar = setTimeout(digitar, deletando ? 60 : 100);
+  }
+
+  // Inicia após a splash
+  setTimeout(digitar, 1500);
+  </script>
 
 </body>
 </html>
