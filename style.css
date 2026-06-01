@@ -1,404 +1,85 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+/* ================================================
+   NAV RIGHT — agrupa switcher + hamburguer
+================================================ */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
 
 /* ================================================
-   RESET GLOBAL
-   Remove margens e paddings padrão do navegador.
-   box-sizing: border-box faz o padding não
-   aumentar o tamanho do elemento.
+   LANG SWITCHER
 ================================================ */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(0,238,255,0.06);
+    border: 1px solid rgba(0,238,255,0.2);
+    border-radius: 30px;
+    padding: 4px 6px;
+}
+
+.lang-btn {
+    background: transparent;
+    border: none;
+    color: #666;
     font-family: 'Poppins', sans-serif;
-    scroll-behavior: smooth;
-}
-
-/* ================================================
-   BODY
-================================================ */
-body {
-    background-color: #0a0a0a;
-    color: #ffffff;
-    overflow-x: hidden;
-    cursor: none;
-}
-
-/* ================================================
-   FUNDO COM GRADIENTE ANIMADO
-================================================ */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background:
-        radial-gradient(circle at 20% 50%, rgba(0,238,255,0.07) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(0,238,255,0.07) 0%, transparent 50%);
-    z-index: -1;
-    animation: bgPulse 6s ease-in-out infinite alternate;
-}
-
-@keyframes bgPulse {
-    0%   { opacity: 0.5; }
-    100% { opacity: 1; }
-}
-
-/* ================================================
-   CURSOR CUSTOMIZADO
-   Escondido no mobile pois não há mouse.
-================================================ */
-.cursor {
-    width: 20px; height: 20px;
-    border: 2px solid #0ef;
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    transition: transform 0.15s, background 0.15s;
-}
-
-.cursor-dot {
-    width: 6px; height: 6px;
-    background: #0ef;
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-}
-
-/* ================================================
-   SPLASH SCREEN
-   Tela de abertura com o R animado.
-   Desaparece ao clicar.
-================================================ */
-.splash-screen {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: #0a0a0a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9998;
-    cursor: pointer;
-}
-
-.splash-r {
-    font-size: 120px;
-    font-weight: 900;
-    color: #0ef;
-    text-shadow: 0 0 30px #0ef, 0 0 60px #0ef;
-    animation: pulseR 1.5s ease-in-out infinite;
-    z-index: 2;
-    position: relative;
-}
-
-.splash-rings {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.ring {
-    position: absolute;
-    border-radius: 50%;
-    border: 2px solid rgba(0,238,255,0.3);
-    animation: expandRing 2s ease-out infinite;
-}
-
-.ring1 { width: 150px; height: 150px; animation-delay: 0s; }
-.ring2 { width: 220px; height: 220px; animation-delay: 0.4s; }
-.ring3 { width: 300px; height: 300px; animation-delay: 0.8s; }
-
-@keyframes expandRing {
-    0%   { transform: scale(0.8); opacity: 1; }
-    100% { transform: scale(1.3); opacity: 0; }
-}
-
-@keyframes pulseR {
-    0%, 100% { transform: scale(1); }
-    50%       { transform: scale(1.05); text-shadow: 0 0 60px #0ef, 0 0 100px #0ef; }
-}
-
-@keyframes splashSair {
-    0%   { opacity: 1; transform: scale(1); }
-    100% { opacity: 0; transform: scale(1.1); }
-}
-
-.splash-screen::after {
-    content: 'Clique para entrar';
-    position: absolute;
-    bottom: 15%;
-    font-size: 14px;
-    color: rgba(0,238,255,0.6);
-    letter-spacing: 3px;
-    animation: piscar 1.5s infinite;
-}
-
-@keyframes piscar {
-    0%, 100% { opacity: 1; }
-    50%       { opacity: 0.3; }
-}
-
-/* ================================================
-   SITE PRINCIPAL
-   Animação de entrada após fechar a splash screen.
-================================================ */
-@keyframes fadeInSite {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ================================================
-   HEADER
-   Fixo no topo com blur de fundo.
-================================================ */
-.header {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    padding: 20px 10%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 100;
-    background: rgba(10,10,10,0.85);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0,238,255,0.1);
-    animation: slideDown 0.8s ease forwards;
-}
-
-@keyframes slideDown {
-    from { transform: translateY(-100px); opacity: 0; }
-    to   { transform: translateY(0); opacity: 1; }
-}
-
-/* ================================================
-   LOGO R
-   Círculo com a letra R. Gira ao passar o mouse.
-================================================ */
-.logo {
-    width: 55px; height: 55px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid #0ef;
-    border-radius: 50%;
-    text-decoration: none;
-    transition: 0.4s;
-    position: relative;
-    overflow: hidden;
-}
-
-.logo span {
-    font-size: 28px;
-    font-weight: 900;
-    color: #0ef;
-    transition: 0.4s;
-    position: relative;
-    z-index: 1;
-}
-
-.logo::before {
-    content: '';
-    position: absolute;
-    top: 0; left: -100%;
-    width: 100%; height: 100%;
-    background: #0ef;
-    transition: 0.4s;
-}
-
-.logo:hover::before  { left: 0; }
-.logo:hover span     { color: #0a0a0a; }
-.logo:hover          { box-shadow: 0 0 30px #0ef; transform: rotate(360deg); }
-
-/* ================================================
-   NAVBAR
-================================================ */
-.navbar a {
-    font-size: 15px;
-    color: #cccccc;
-    text-decoration: none;
-    margin-left: 35px;
-    font-weight: 500;
-    position: relative;
-    transition: color 0.3s;
-}
-
-.navbar a::after {
-    content: '';
-    position: absolute;
-    bottom: -4px; left: 0;
-    width: 0%; height: 2px;
-    background: #0ef;
-    transition: 0.4s;
-}
-
-.navbar a:hover,
-.navbar a.active { color: #0ef; }
-
-.navbar a:hover::after,
-.navbar a.active::after { width: 100%; }
-
-/* ================================================
-   TÍTULO DE SEÇÃO
-   Usado em todas as seções.
-================================================ */
-.titulo-secao {
-    text-align: center;
-    font-size: 40px;
-    font-weight: 800;
-    margin-bottom: 60px;
-    position: relative;
-}
-
-.titulo-secao::after {
-    content: '';
-    position: absolute;
-    bottom: -12px; left: 50%;
-    transform: translateX(-50%);
-    width: 80px; height: 3px;
-    background: linear-gradient(90deg, #0ef, #00a8b5);
-    border-radius: 10px;
-}
-
-.titulo-secao span { color: #0ef; }
-
-/* ================================================
-   HOME
-================================================ */
-.home {
-    width: 100%;
-    min-height: 100vh;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 100px 10% 0;
-    gap: 40px;
-}
-
-.home-content h3 {
-    font-size: 24px;
-    font-weight: 600;
-    color: #cccccc;
-    opacity: 0;
-    animation: fadeInLeft 1s ease 0.2s forwards;
-}
-
-.home-content h1 {
-    font-size: 58px;
-    font-weight: 800;
-    line-height: 1.2;
-    background: linear-gradient(135deg, #ffffff 0%, #0ef 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    opacity: 0;
-    animation: fadeInLeft 1s ease 0.4s forwards;
-}
-
-.home-content h3:nth-of-type(2) {
-    font-size: 26px;
-    color: #ffffff;
-    -webkit-text-fill-color: #ffffff;
-    opacity: 0;
-    animation: fadeInLeft 1s ease 0.6s forwards;
-}
-
-/* Cursor piscante do efeito de digitação */
-.texto-digitando {
-    color: #0ef;
-    -webkit-text-fill-color: #0ef;
-    border-right: 3px solid #0ef;
-    animation: piscar 0.8s infinite;
-}
-
-.home-content p {
-    font-size: 15px;
-    color: #aaaaaa;
-    margin: 20px 0 30px;
-    max-width: 500px;
-    line-height: 1.8;
-    opacity: 0;
-    animation: fadeInLeft 1s ease 0.8s forwards;
-}
-
-@keyframes fadeInLeft {
-    from { transform: translateX(-80px); opacity: 0; }
-    to   { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes fadeInRight {
-    from { transform: translateX(80px); opacity: 0; }
-    to   { transform: translateX(0); opacity: 1; }
-}
-
-/* ================================================
-   REDES SOCIAIS
-================================================ */
-.redes-sociais {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 35px;
-    opacity: 0;
-    animation: fadeInLeft 1s ease 1s forwards;
-}
-
-.redes-sociais a {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    width: 48px; height: 48px;
-    border: 2px solid #0ef;
-    border-radius: 50%;
-    font-size: 22px;
-    color: #0ef;
-    text-decoration: none;
-    transition: 0.4s;
-    overflow: hidden;
-    position: relative;
-}
-
-.redes-sociais a::before {
-    content: '';
-    position: absolute;
-    top: 0; left: -100%;
-    width: 100%; height: 100%;
-    background: #0ef;
-    transition: 0.4s;
-    z-index: 0;
-}
-
-.redes-sociais a:hover::before { left: 0; }
-.redes-sociais a:hover {
-    color: #0a0a0a;
-    box-shadow: 0 0 20px #0ef;
-    transform: translateY(-4px) rotate(360deg);
-}
-.redes-sociais a i { position: relative; z-index: 1; }
-
-/* ================================================
-   BOTÃO PRINCIPAL
-================================================ */
-.btn {
-    display: inline-block;
-    padding: 14px 32px;
-    background: linear-gradient(135deg, #0ef, #00a8b5);
-    color: #0a0a0a;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 700;
-    border-radius: 40px;
-    text-decoration: none;
-    transition: 0.4s;
-    box-shadow: 0 0 20px rgba(0,238,255,0.4);
-    border: 2px solid transparent;
+    letter-spacing: 0.5px;
+    padding: 4px 10px;
+    border-radius: 20px;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.lang-btn.ativo {
+    background: #0ef;
+    color: #0a0a0a;
+}
+
+.lang-btn:hover:not(.ativo) { color: #0ef; }
+
+/* ================================================
+   CV BUTTONS
+   Backend = destaque (igual ao .btn principal)
+   Frontend = outline
+================================================ */
+.cv-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 0;
     opacity: 0;
     animation: fadeInLeft 1s ease 1.2s forwards;
 }
 
-.btn:hover {
+.btn-cv {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 26px;
+    border-radius: 40px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: 0.4s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Backend — preenchido, igual ao .btn */
+.btn-cv-backend {
+    background: linear-gradient(135deg, #0ef, #00a8b5);
+    color: #0a0a0a;
+    box-shadow: 0 0 20px rgba(0,238,255,0.4);
+    border: 2px solid transparent;
+}
+
+.btn-cv-backend:hover {
     background: transparent;
     color: #0ef;
     border-color: #0ef;
@@ -406,91 +87,45 @@ body::before {
     transform: translateY(-4px);
 }
 
-/* ================================================
-   IMAGEM / AVATAR HOME
-   A foto flutua e pulsa com brilho.
-   Se a foto não carregar, mostra o avatar com R.
-================================================ */
-.home-img {
-    opacity: 0;
-    animation: fadeInRight 1s ease 0.5s forwards;
-    position: relative;
-}
-
-.home-img::before {
-    content: '';
-    position: absolute;
-    top: -15px; left: -15px; right: -15px; bottom: -15px;
-    border-radius: 50%;
-    border: 2px dashed rgba(0,238,255,0.4);
-    animation: rotateBorder 8s linear infinite;
-}
-
-.home-img::after {
-    content: '';
-    position: absolute;
-    top: -30px; left: -30px; right: -30px; bottom: -30px;
-    border-radius: 50%;
-    border: 1px dashed rgba(0,238,255,0.2);
-    animation: rotateBorder 15s linear infinite reverse;
-}
-
-@keyframes rotateBorder {
-    from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
-}
-
-.home-img img {
-    width: 350px; height: 350px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid #0ef;
-    box-shadow: 0 0 40px rgba(0,238,255,0.5);
-    animation: floatImg 4s ease-in-out infinite, glowPulse 3s ease-in-out infinite;
-    position: relative;
-    z-index: 1;
-}
-
-.avatar-fallback {
-    width: 350px; height: 350px;
-    border-radius: 50%;
-    border: 4px solid #0ef;
-    box-shadow: 0 0 40px rgba(0,238,255,0.5);
-    background: rgba(0,238,255,0.08);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 100px;
-    font-weight: 900;
+/* Frontend — outline */
+.btn-cv-frontend {
+    background: transparent;
     color: #0ef;
-    animation: floatImg 4s ease-in-out infinite, glowPulse 3s ease-in-out infinite;
-    position: relative;
-    z-index: 1;
+    border: 2px solid rgba(0,238,255,0.4);
 }
 
-@keyframes floatImg {
-    0%, 100% { transform: translateY(0); }
-    50%       { transform: translateY(-20px); }
+.btn-cv-frontend::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: rgba(0,238,255,0.08);
+    transition: 0.4s;
+    z-index: 0;
 }
 
-@keyframes glowPulse {
-    0%, 100% { box-shadow: 0 0 30px rgba(0,238,255,0.4); }
-    50%       { box-shadow: 0 0 70px rgba(0,238,255,0.9); }
+.btn-cv-frontend:hover::before { left: 0; }
+.btn-cv-frontend:hover {
+    border-color: #0ef;
+    box-shadow: 0 0 20px rgba(0,238,255,0.3);
+    transform: translateY(-4px);
+}
+
+.btn-cv i,
+.btn-cv span { position: relative; z-index: 1; }
+
+/* cv-buttons dentro do Sobre (sem animação de entrada) */
+.sobre-content .cv-buttons {
+    opacity: 1;
+    animation: none;
 }
 
 /* ================================================
-   SOBRE
+   SOBRE IMG — fallback avatar
 ================================================ */
-.sobre { padding: 80px 10%; }
-
-.sobre-container {
-    display: flex;
-    align-items: center;
-    gap: 60px;
-}
-
-.avatar-sobre {
-    width: 300px; height: 300px;
+.sobre-img .avatar-sobre-img {
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     border: 4px solid #0ef;
     box-shadow: 0 0 30px rgba(0,238,255,0.4);
@@ -501,441 +136,48 @@ body::before {
     font-size: 80px;
     font-weight: 900;
     color: #0ef;
-    transition: 0.4s;
     flex-shrink: 0;
+    transition: 0.4s;
 }
 
-.avatar-sobre:hover {
+.sobre-img .avatar-sobre-img:hover {
     transform: scale(1.05);
     box-shadow: 0 0 60px rgba(0,238,255,0.8);
 }
 
-.sobre-content h3 {
-    font-size: 26px;
-    font-weight: 700;
-    margin-bottom: 20px;
-}
-
-.sobre-content p {
-    font-size: 15px;
-    color: #aaaaaa;
-    line-height: 1.8;
-    margin-bottom: 15px;
-}
-
-.sobre-content .btn {
-    margin-top: 10px;
-    opacity: 1;
-    animation: none;
-}
-
 /* ================================================
-   HABILIDADES
-   Rótulos descritivos no lugar de porcentagens.
-================================================ */
-.habilidades {
-    padding: 80px 10%;
-    background: rgba(0,238,255,0.02);
-}
-
-.habilidades-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-}
-
-.habilidade-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(0,238,255,0.15);
-    border-radius: 16px;
-    padding: 28px;
-    transition: 0.4s;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    transform-style: preserve-3d;
-}
-
-.habilidade-card:hover {
-    border-color: #0ef;
-    box-shadow: 0 20px 40px rgba(0,238,255,0.2);
-}
-
-.habilidade-card i {
-    font-size: 40px;
-    color: #0ef;
-    transition: 0.4s;
-}
-
-.habilidade-card:hover i {
-    transform: scale(1.2) rotate(10deg);
-    text-shadow: 0 0 20px #0ef;
-}
-
-.habilidade-card h3 {
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.nivel {
-    display: inline-block;
-    font-size: 12px;
-    color: #0ef;
-    font-weight: 600;
-    background: rgba(0,238,255,0.1);
-    border: 1px solid rgba(0,238,255,0.3);
-    padding: 4px 12px;
-    border-radius: 20px;
-    margin-top: 4px;
-    width: fit-content;
-}
-
-/* ================================================
-   PORTFÓLIO
-================================================ */
-.portfolio { padding: 80px 10%; }
-
-.portfolio-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-}
-
-.portfolio-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(0,238,255,0.15);
-    border-radius: 16px;
-    overflow: hidden;
-    transition: border-color 0.4s, box-shadow 0.4s;
-    transform-style: preserve-3d;
-    position: relative;
-}
-
-.portfolio-card::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 3px;
-    background: linear-gradient(90deg, #0ef, #00a8b5);
-    transform: scaleX(0);
-    transition: 0.4s;
-}
-
-.portfolio-card:hover::after { transform: scaleX(1); }
-
-.portfolio-card:hover {
-    border-color: #0ef;
-    box-shadow: 0 20px 40px rgba(0,238,255,0.2);
-}
-
-.sem-imagem {
-    display: flex;
-    flex-direction: column;
-}
-
-.card-icone {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 160px;
-    background: rgba(0,238,255,0.05);
-    font-size: 65px;
-    color: #0ef;
-    transition: 0.4s;
-}
-
-.portfolio-card:hover .card-icone {
-    text-shadow: 0 0 30px #0ef;
-    font-size: 75px;
-}
-
-.portfolio-info { padding: 20px; }
-
-.portfolio-info h3 {
-    font-size: 18px;
-    font-weight: 700;
-    margin-bottom: 10px;
-}
-
-.portfolio-info p {
-    font-size: 13px;
-    color: #aaaaaa;
-    line-height: 1.7;
-    margin-bottom: 15px;
-}
-
-.portfolio-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 15px;
-}
-
-.portfolio-tags span {
-    background: rgba(0,238,255,0.1);
-    color: #0ef;
-    font-size: 11px;
-    padding: 4px 10px;
-    border-radius: 20px;
-    border: 1px solid rgba(0,238,255,0.3);
-    transition: 0.3s;
-}
-
-.portfolio-tags span:hover { background: #0ef; color: #0a0a0a; }
-
-.btn-card {
-    display: inline-block;
-    padding: 8px 20px;
-    background: transparent;
-    color: #0ef;
-    border: 2px solid #0ef;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: 0.3s;
-}
-
-.btn-card:hover { background: #0ef; color: #0a0a0a; box-shadow: 0 0 15px #0ef; }
-
-/* ================================================
-   CONTATO
-================================================ */
-.contato {
-    padding: 80px 10%;
-    background: rgba(0,238,255,0.02);
-}
-
-.contato-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-}
-
-.contato-item {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 20px;
-    padding: 20px;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(0,238,255,0.15);
-    border-radius: 12px;
-    transition: 0.4s;
-}
-
-.contato-item:hover {
-    border-color: #0ef;
-    box-shadow: 0 0 20px rgba(0,238,255,0.15);
-    transform: translateX(10px);
-}
-
-.contato-item i { font-size: 32px; color: #0ef; transition: 0.4s; }
-.contato-item:hover i { transform: scale(1.2); text-shadow: 0 0 15px #0ef; }
-.contato-item h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
-.contato-item p  { font-size: 13px; color: #aaaaaa; }
-
-.contato-form { display: flex; flex-direction: column; gap: 15px; }
-
-.contato-form input,
-.contato-form textarea {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(0,238,255,0.15);
-    border-radius: 10px;
-    padding: 14px 18px;
-    color: #ffffff;
-    font-size: 14px;
-    font-family: 'Poppins', sans-serif;
-    transition: 0.3s;
-    outline: none;
-}
-
-.contato-form input:focus,
-.contato-form textarea:focus {
-    border-color: #0ef;
-    box-shadow: 0 0 15px rgba(0,238,255,0.15);
-}
-
-.contato-form input::placeholder,
-.contato-form textarea::placeholder { color: #666; }
-
-.contato-form .btn { opacity: 1; animation: none; text-align: center; }
-
-/* ================================================
-   RODAPÉ
-================================================ */
-.footer {
-    padding: 30px 10%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid rgba(0,238,255,0.1);
-}
-
-.footer p { font-size: 14px; color: #aaaaaa; }
-.footer p span { color: #0ef; font-weight: 600; }
-
-.footer-redes { display: flex; gap: 15px; }
-
-.footer-redes a {
-    font-size: 22px;
-    color: #aaaaaa;
-    text-decoration: none;
-    transition: 0.4s;
-}
-
-.footer-redes a:hover {
-    color: #0ef;
-    transform: translateY(-5px);
-    text-shadow: 0 0 15px #0ef;
-}
-
-/* ================================================
-   RESPONSIVIDADE
-   max-width: 768px → tablet e celular
-   max-width: 480px → celular pequeno
+   RESPONSIVIDADE — CV BUTTONS + SWITCHER
 ================================================ */
 @media (max-width: 768px) {
-
-    .header { padding: 16px 6%; }
-
-    .navbar {
-        position: fixed;
-        top: 0; right: -100%;
-        width: 70%;
-        height: 100vh;
-        background: rgba(10,10,10,0.98);
-        backdrop-filter: blur(20px);
-        border-left: 1px solid rgba(0,238,255,0.15);
-        display: flex;
-        flex-direction: column;
+    .cv-buttons {
         justify-content: center;
-        align-items: center;
-        gap: 40px;
-        transition: right 0.4s ease;
-        z-index: 200;
     }
 
-    .navbar.aberta { right: 0; }
-
-    .navbar a {
-        font-size: 20px;
-        margin-left: 0;
+    .btn-cv {
+        padding: 11px 20px;
+        font-size: 13px;
     }
 
-    .menu-btn {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-        cursor: pointer;
-        z-index: 300;
+    .lang-switcher {
+        margin-right: 6px;
     }
 
-    .menu-btn span {
-        display: block;
-        width: 25px; height: 2px;
-        background: #0ef;
-        border-radius: 2px;
-        transition: 0.4s;
-    }
-
-    .menu-btn.ativo span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .menu-btn.ativo span:nth-child(2) { opacity: 0; }
-    .menu-btn.ativo span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-    .menu-overlay {
-        display: none;
-        position: fixed;
-        top: 0; left: 0;
-        width: 100%; height: 100%;
-        background: rgba(0,0,0,0.5);
-        z-index: 150;
-    }
-
-    .menu-overlay.ativo { display: block; }
-
-    .cursor,
-    .cursor-dot { display: none; }
-
-    .home {
-        flex-direction: column-reverse;
-        padding: 120px 6% 60px;
-        text-align: center;
-        gap: 40px;
-    }
-
-    .home-content h1 { font-size: 36px; }
-    .home-content h3 { font-size: 18px; }
-    .home-content h3:nth-of-type(2) { font-size: 20px; }
-    .home-content p  { font-size: 14px; max-width: 100%; }
-
-    .redes-sociais { justify-content: center; }
-
-    .home-img img,
-    .avatar-fallback {
-        width: 220px; height: 220px;
-        font-size: 65px;
-    }
-
-    .sobre-container {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .avatar-sobre {
-        width: 200px; height: 200px;
+    .sobre-img .avatar-sobre-img {
+        width: 200px;
+        height: 200px;
         font-size: 55px;
         margin: 0 auto;
-    }
-
-    .habilidades-grid    { grid-template-columns: 1fr; }
-    .portfolio-grid      { grid-template-columns: 1fr; }
-    .contato-container   { grid-template-columns: 1fr; gap: 40px; }
-    .titulo-secao        { font-size: 30px; }
-
-    .footer {
-        flex-direction: column;
-        gap: 16px;
-        text-align: center;
-        padding: 30px 6%;
     }
 }
 
 @media (max-width: 480px) {
-
-    .home-content h1 { font-size: 28px; }
-
-    .home-img img,
-    .avatar-fallback {
-        width: 180px; height: 180px;
-        font-size: 50px;
-    }
-
-    .card-icone {
-        height: 120px;
-        font-size: 50px;
-    }
-
-    .contato-item {
+    .cv-buttons {
         flex-direction: column;
-        text-align: center;
+        align-items: center;
     }
-}
 
-.menu-btn { display: none; }
-
-.sobre-img img {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 4px solid #0ef;
-    box-shadow: 0 0 30px rgba(0,238,255,0.4);
-    transition: 0.4s;
-    flex-shrink: 0;
-}
-
-.sobre-img img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 60px rgba(0,238,255,0.8);
+    .btn-cv {
+        width: 100%;
+        justify-content: center;
+    }
 }
