@@ -1,19 +1,26 @@
 // ================================================
 // SPLASH SCREEN
 // ================================================
-const splash   = document.getElementById('splash');
+const splash = document.getElementById('splash');
 const mainSite = document.getElementById('mainSite');
 
-mainSite.style.display = 'none';
+// garante que o site apareça mesmo se a splash falhar
+mainSite.style.display = 'block';
 
-splash.addEventListener('click', () => {
-    splash.style.animation = 'splashSair 0.8s ease forwards';
+if (splash) {
+    splash.addEventListener('click', () => {
+        splash.style.animation = 'splashSair 0.8s ease forwards';
+
+        setTimeout(() => {
+            splash.style.display = 'none';
+        }, 800);
+    });
+
+    // remove splash automaticamente após 2s
     setTimeout(() => {
-        splash.style.display     = 'none';
-        mainSite.style.display   = 'block';
-        mainSite.style.animation = 'fadeInSite 1s ease forwards';
-    }, 800);
-});
+        splash.style.display = 'none';
+    }, 2000);
+}
 
 // ================================================
 // CURSOR CUSTOMIZADO
