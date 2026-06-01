@@ -195,11 +195,11 @@
         </div>
         <!-- CV BUTTONS -->
         <div class="cv-buttons">
-          <a href="Curriculo_Raul_Adriano_backend.pdf"  download class="btn-cv btn-cv-backend">
+          <a href="https://drive.google.com/uc?export=download&id=1uxVipVj4nSjjUacoduvgwx36VlxjhS1a" target="_blank" class="btn-cv btn-cv-backend">
             <i class='bx bx-download'></i>
             <span data-pt="CV Backend" data-en="Backend CV">CV Backend</span>
           </a>
-          <a href="Curriculo_Frontend_Raul_Adriano.pdf" download class="btn-cv btn-cv-frontend">
+          <a href="https://drive.google.com/uc?export=download&id=1V67PC3Hy6MtEhxPJ1DsIGY48ZZATFgT9" target="_blank" class="btn-cv btn-cv-frontend">
             <i class='bx bx-download'></i>
             <span data-pt="CV Frontend" data-en="Frontend CV">CV Frontend</span>
           </a>
@@ -247,11 +247,11 @@
           </p>
           <!-- CV BUTTONS (sobre) -->
           <div class="cv-buttons" style="margin-top:10px;">
-            <a href="Curriculo_Raul_Adriano_backend.pdf"  download class="btn-cv btn-cv-backend">
+            <a href="https://drive.google.com/uc?export=download&id=1uxVipVj4nSjjUacoduvgwx36VlxjhS1a" target="_blank" class="btn-cv btn-cv-backend">
               <i class='bx bx-download'></i>
               <span data-pt="CV Backend" data-en="Backend CV">CV Backend</span>
             </a>
-            <a href="Curriculo_Frontend_Raul_Adriano.pdf" download class="btn-cv btn-cv-frontend">
+            <a href="https://drive.google.com/uc?export=download&id=1V67PC3Hy6MtEhxPJ1DsIGY48ZZATFgT9" target="_blank" class="btn-cv btn-cv-frontend">
               <i class='bx bx-download'></i>
               <span data-pt="CV Frontend" data-en="Frontend CV">CV Frontend</span>
             </a>
@@ -484,6 +484,8 @@
     document.querySelectorAll('[data-pt][data-en]').forEach(el => {
       // pula inputs/textarea (usam placeholder)
       if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') return;
+      // pula elementos que contêm o span de digitação
+      if (el.querySelector('.texto-digitando')) return;
       el.innerHTML = el.getAttribute('data-' + lang);
     });
 
