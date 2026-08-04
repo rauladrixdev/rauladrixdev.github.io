@@ -4,7 +4,11 @@
 ### Backend Python Developer (in training)
 
 [![Portfolio](https://img.shields.io/badge/Portfolio-rauladrixdev.github.io-0B0D12?style=flat-square)](https://rauladrixdev.github.io/)
+<<<<<<< HEAD
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Raul_Adriano-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://linkedin.com/in/raul-adriano)
+=======
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-raul-adriano-0A66C2?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/raul-adriano/)
+>>>>>>> 622a88a8a8c395412cbbb87bcacc78c642332c64
 [![GitHub](https://img.shields.io/badge/GitHub-rauladrixdev-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/rauladrixdev)
 
 Building REST APIs with FastAPI, layered backends, and accessibility-focused projects — from database design to delivery.
@@ -100,7 +104,11 @@ I'm Deaf. One of the featured projects on this site, **InterLibras AI**, is a pe
 ## Contact
 
 - GitHub: [github.com/rauladrixdev](https://github.com/rauladrixdev)
+<<<<<<< HEAD
 - LinkedIn: [linkedin.com/in/raul-adriano](https://linkedin.com/in/raul-adriano)
+=======
+- LinkedIn: [linkedin.com/in/rauladriano](https://www.linkedin.com/in/raul-adriano/)
+>>>>>>> 622a88a8a8c395412cbbb87bcacc78c642332c64
 - Portfolio / contact form: [rauladrixdev.github.io/#contato](https://rauladrixdev.github.io/#contato)
 
 ---
