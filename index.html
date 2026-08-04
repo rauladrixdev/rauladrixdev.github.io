@@ -1,334 +1,611 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raúl Adriano | Desenvolvedor</title>
-  <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Raul Adriano Jardim — Desenvolvedor Backend Python</title>
+<meta name="description" content="Raul Adriano Jardim — Desenvolvedor Backend Python em formação. APIs REST com FastAPI, PostgreSQL e arquitetura em camadas. Estudante de ADS na UNICID.">
+<link rel="canonical" href="https://rauladrixdev.github.io/">
+<meta name="theme-color" content="#0B0D12">
 
+<link rel="alternate" hreflang="pt-BR" href="https://rauladrixdev.github.io/">
+<link rel="alternate" hreflang="en" href="https://rauladrixdev.github.io/">
+<link rel="alternate" hreflang="es" href="https://rauladrixdev.github.io/">
+<link rel="alternate" hreflang="x-default" href="https://rauladrixdev.github.io/">
+
+<meta property="og:title" content="Raul Adriano Jardim — Desenvolvedor Backend Python">
+<meta property="og:description" content="APIs REST com FastAPI, PostgreSQL e arquitetura em camadas. Estudante de ADS focado em Backend Python.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://rauladrixdev.github.io/">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Raul Adriano Jardim — Desenvolvedor Backend Python">
+<meta name="twitter:description" content="APIs REST com FastAPI, PostgreSQL e arquitetura em camadas.">
+
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.json">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Raul Adriano Jardim",
+  "jobTitle": "Backend Python Developer (student)",
+  "url": "https://rauladrixdev.github.io/",
+  "knowsLanguage": ["pt-BR", "en", "es"],
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "UNICID"
+  },
+  "sameAs": [
+    "https://github.com/rauladrixdev",
+    "https://linkedin.com/in/rauladriano"
+  ]
+}
+</script>
 </head>
-
 <body>
 
-  <!-- CURSOR CUSTOMIZADO -->
-  <div class="cursor"></div>
-  <div class="cursor-dot"></div>
+<a class="skip-link" href="#main">Pular para o conteúdo</a>
 
-  <!-- SPLASH SCREEN -->
-  <div class="splash-screen" id="splash">
-    <div class="splash-r">R</div>
-    <div class="splash-rings">
-      <div class="ring ring1"></div>
-      <div class="ring ring2"></div>
-      <div class="ring ring3"></div>
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand"><span class="mark">R</span><span class="brand-name">Raul Adriano</span></a>
+
+    <nav class="links" aria-label="Navegação principal" id="primaryNav">
+      <a href="#sobre" data-i18n="nav.about">Sobre</a>
+      <a href="#projetos" data-i18n="nav.projects">Projetos</a>
+      <a href="#skills" data-i18n="nav.skills">Skills</a>
+      <a href="#github" data-i18n="nav.github">GitHub</a>
+      <a href="#curriculo" data-i18n="nav.resume">Currículo</a>
+      <a href="#contato" data-i18n="nav.contact">Contato</a>
+    </nav>
+
+    <div class="nav-cta">
+      <div class="lang-switch" role="group" aria-label="Idioma / Language / Idioma">
+        <button class="lang-btn active" data-lang="pt" aria-pressed="true">PT</button>
+        <button class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
+        <button class="lang-btn" data-lang="es" aria-pressed="false">ES</button>
+      </div>
+      <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema claro/escuro" aria-pressed="false">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="primaryNav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
     </div>
   </div>
+</header>
 
-  <!-- SITE PRINCIPAL -->
-  <div class="main-site" id="mainSite">
+<main id="main">
 
-    <!-- HEADER -->
-    <header class="header">
-      <a href="#inicio" class="logo"><span>R</span></a>
-      <nav class="navbar" id="navbar">
-        <a href="#inicio" class="active" data-pt="Início"      data-en="Home">Início</a>
-        <a href="#sobre"                  data-pt="Sobre"       data-en="About">Sobre</a>
-        <a href="#habilidades"            data-pt="Habilidades" data-en="Skills">Habilidades</a>
-        <a href="#portfolio"              data-pt="Portfólio"   data-en="Portfolio">Portfólio</a>
-        <a href="#contato"                data-pt="Contato"     data-en="Contact">Contato</a>
-      </nav>
-      <div class="nav-right">
-        <!-- Switcher PT/EN -->
-        <div class="lang-switcher">
-          <button class="lang-btn ativo" id="btnPT" onclick="setLang('pt')">PT</button>
-          <button class="lang-btn"       id="btnEN" onclick="setLang('en')">EN</button>
-        </div>
-        <!-- Hamburguer -->
-        <div class="menu-btn" id="menuBtn">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-      </div>
-    </header>
+  <!-- ================= HERO ================= -->
+  <section class="hero wrap" id="top" aria-label="Introdução">
+    <span class="status-pill"><span class="dot"></span> <span data-i18n="hero.status">Disponível para estágio e posições júnior</span></span>
+    <h1 class="hero-name">Raul Adriano Jardim</h1>
+    <div class="hero-role" data-i18n="hero.role">Desenvolvedor Backend Python</div>
+    <p class="hero-headline" data-i18n="hero.headline">
+      Construindo APIs REST com FastAPI, backends organizados em camadas e projetos com foco em acessibilidade —
+      da modelagem do banco de dados à entrega.
+    </p>
+    <div class="hero-actions">
+      <a href="#projetos" class="btn btn-primary" data-i18n="hero.ctaProjects">Ver projetos</a>
+      <a href="https://github.com/rauladrixdev" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/rauladriano" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+      <a href="#curriculo" class="btn btn-ghost" data-i18n="hero.ctaResume">Ver currículo</a>
+    </div>
+    <div class="hero-meta">
+      <div class="meta-item"><b data-i18n="hero.metaCity">São Paulo, SP</b><span data-i18n="hero.metaCountry">Brasil</span></div>
+      <div class="meta-item"><b>UNICID</b><span data-i18n="hero.metaCourse">ADS · conclusão dez/2026</span></div>
+      <div class="meta-item"><b data-i18n="hero.metaPcdLabel">PCD — Surdez</b><span data-i18n="hero.metaPcd">Elegível para vagas afirmativas</span></div>
+      <div class="meta-item"><b data-i18n="hero.metaLangLabel">Idiomas</b><span>PT · EN · ES · Libras · ASL</span></div>
+    </div>
+  </section>
 
-    <div class="menu-overlay" id="menuOverlay"></div>
+  <!-- ================= SOBRE ================= -->
+  <section id="sobre" aria-labelledby="sobre-title">
+    <div class="wrap">
+      <div class="eyebrow"><span class="num">01</span> <span data-i18n="about.eyebrow">Sobre</span></div>
+      <h2 class="title" id="sobre-title" data-i18n="about.title">Foco em backend, com base sólida em dados</h2>
 
-    <!-- HOME -->
-    <section class="home" id="inicio">
-      <div class="home-content">
-        <h3 data-pt="Olá, eu sou" data-en="Hi, I'm">Olá, eu sou</h3>
-        <h1>Raúl Adriano</h1>
-        <h3><span data-pt="E sou" data-en="I'm a">E sou</span> <span class="texto-digitando"></span></h3>
-        <p data-pt="Desenvolvedor focado em Backend e Frontend, estudante de Análise e Desenvolvimento de Sistemas na UNICID. Trabalho com Python, Java, SQL, HTML, CSS e JavaScript, construindo projetos reais para evoluir no mercado de tecnologia."
-           data-en="Backend & Frontend developer, studying Systems Analysis and Development at UNICID. I work with Python, Java, SQL, HTML, CSS and JavaScript, building real projects to grow in the tech market.">
-          Desenvolvedor focado em Backend e Frontend, estudante de
-          Análise e Desenvolvimento de Sistemas na UNICID.
-          Trabalho com Python, Java, SQL, HTML, CSS e JavaScript,
-          construindo projetos reais para evoluir no mercado de tecnologia.
-        </p>
-        <div class="redes-sociais">
-          <a href="https://linkedin.com/in/raul-adriano" target="_blank">
-            <i class='bx bxl-linkedin'></i>
-          </a>
-          <a href="https://github.com/rauladrixdev" target="_blank">
-            <i class='bx bxl-github'></i>
-          </a>
-        </div>
-        <!-- CV BUTTONS -->
-        <div class="cv-buttons">
-          <a href="https://drive.google.com/uc?export=download&id=1uxVipVj4nSjjUacoduvgwx36VlxjhS1a" target="_blank" class="btn-cv btn-cv-backend">
-            <i class='bx bx-download'></i>
-            <span data-pt="CV Backend" data-en="Backend CV">CV Backend</span>
-          </a>
-          <a href="https://drive.google.com/uc?export=download&id=1V67PC3Hy6MtEhxPJ1DsIGY48ZZATFgT9" target="_blank" class="btn-cv btn-cv-frontend">
-            <i class='bx bx-download'></i>
-            <span data-pt="CV Frontend" data-en="Frontend CV">CV Frontend</span>
-          </a>
-        </div>
-      </div>
-
-      <div class="home-img">
-        <img
-          src="home.jpg"
-          alt="Raúl Adriano"
-          id="fotoHome"
-          onerror="this.style.display='none'; document.getElementById('avatarHome').style.display='flex';"
-        />
-        <div class="avatar-fallback" id="avatarHome" style="display:none;">R</div>
-      </div>
-    </section>
-
-    <!-- SOBRE MIM -->
-    <section class="sobre" id="sobre">
-      <h2 class="titulo-secao" data-pt="Sobre <span>Mim</span>" data-en="About <span>Me</span>">Sobre <span>Mim</span></h2>
-      <div class="sobre-container">
-        <div class="sobre-img">
-          <img
-            src="home.jpg"
-            alt="Raúl Adriano"
-            onerror="this.style.display='none'; document.getElementById('avatarSobre').style.display='flex';"
-          />
-          <div class="avatar-sobre-img" id="avatarSobre" style="display:none;">R</div>
-        </div>
-        <div class="sobre-content">
-          <h3 data-pt="Olá! Sou o Raúl Adriano 👋" data-en="Hey! I'm Raúl Adriano 👋">Olá! Sou o Raúl Adriano 👋</h3>
-          <p data-pt="Tenho 19 anos, sou de São Paulo e estudo Análise e Desenvolvimento de Sistemas na UNICID, com formatura prevista para dezembro de 2026."
-             data-en="I'm 19 years old, from São Paulo, and I study Systems Analysis and Development at UNICID, with graduation expected in December 2026.">
-            Tenho 19 anos, sou de São Paulo e estudo Análise e
-            Desenvolvimento de Sistemas na UNICID, com formatura
-            prevista para dezembro de 2026.
+      <div class="about-grid">
+        <div class="about-text">
+          <p data-i18n="about.p1">
+            Sou estudante de Análise e Desenvolvimento de Sistemas na UNICID (São Paulo), cursando o 4º semestre,
+            com conclusão prevista para dezembro de 2026. Dedico a maior parte do meu tempo de estudo ao
+            desenvolvimento Backend em Python.
           </p>
-          <p data-pt="Foco em desenvolvimento Backend com Python e Java, e Frontend com HTML, CSS e JavaScript. Tenho projetos reais no GitHub, incluindo uma API de autenticação, um Data Warehouse com Curva ABC em SQL Server e um dashboard de vendas em Power BI."
-             data-en="Focused on Backend development with Python and Java, and Frontend with HTML, CSS and JavaScript. I have real GitHub projects including an authentication API, a Data Warehouse with ABC curve in SQL Server, and a Power BI sales dashboard.">
-            Foco em desenvolvimento Backend com Python e Java,
-            e Frontend com HTML, CSS e JavaScript. Tenho projetos
-            reais no GitHub, incluindo uma API de autenticação,
-            um Data Warehouse com Curva ABC em SQL Server e um
-            dashboard de vendas em Power BI.
+          <p data-i18n="about.p2">
+            No dia a dia isso significa construir APIs REST com FastAPI, cuidar de autenticação com JWT e bcrypt,
+            validar dados com Pydantic v2 e modelar a persistência com SQLAlchemy sobre PostgreSQL — organizando
+            o código em camadas (Models, Schemas, Services, Routers) para manter os projetos legíveis e fáceis de evoluir.
           </p>
-          <!-- CV BUTTONS (sobre) -->
-          <div class="cv-buttons" style="margin-top:10px;">
-            <a href="https://drive.google.com/uc?export=download&id=1uxVipVj4nSjjUacoduvgwx36VlxjhS1a" target="_blank" class="btn-cv btn-cv-backend">
-              <i class='bx bx-download'></i>
-              <span data-pt="CV Backend" data-en="Backend CV">CV Backend</span>
-            </a>
-            <a href="https://drive.google.com/uc?export=download&id=1V67PC3Hy6MtEhxPJ1DsIGY48ZZATFgT9" target="_blank" class="btn-cv btn-cv-frontend">
-              <i class='bx bx-download'></i>
-              <span data-pt="CV Frontend" data-en="Frontend CV">CV Frontend</span>
-            </a>
+          <p data-i18n="about.p3">
+            Também trabalho com testes automatizados em pytest, containerização com Docker e, em paralelo, mantenho
+            contato com Java/Spring Boot e com análise de dados em SQL e Power BI.
+          </p>
+          <p data-i18n="about.p4">
+            Estou em busca da minha primeira oportunidade de estágio ou posição júnior em Desenvolvimento Backend
+            Python — presencial, híbrida ou remota.
+          </p>
+        </div>
+
+        <div class="fact-list">
+          <div class="fact"><div class="k" data-i18n="about.factEduLabel">Formação</div><div class="v" data-i18n="about.factEdu">Análise e Desenvolvimento de Sistemas — UNICID</div></div>
+          <div class="fact"><div class="k" data-i18n="about.factFocusLabel">Foco atual</div><div class="v">Python · FastAPI · PostgreSQL</div></div>
+          <div class="fact"><div class="k" data-i18n="about.factAlsoLabel">Também estuda</div><div class="v">Java/Spring Boot · SQL · Power BI</div></div>
+          <div class="fact"><div class="k" data-i18n="about.factLangLabel">Idiomas</div><div class="v" data-i18n="about.factLang">Português (nativo) · Libras (fluente) · Inglês e Espanhol (intermediário) · ASL (intermediário)</div></div>
+          <div class="fact"><div class="k" data-i18n="about.factAvailLabel">Disponibilidade</div><div class="v" data-i18n="about.factAvail">Estágio ou posição júnior — presencial, híbrido ou remoto</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SKILLS ================= -->
+  <section id="skills" aria-labelledby="skills-title">
+    <div class="wrap">
+      <div class="eyebrow"><span class="num">02</span> Skills</div>
+      <h2 class="title" id="skills-title" data-i18n="skills.title">Stack técnica</h2>
+      <p class="lede" data-i18n="skills.lede">Tecnologias que uso de forma prática em projetos reais, organizadas por área.</p>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <h3><span class="sw"></span><span data-i18n="skills.backend">Backend</span></h3>
+          <div class="badges">
+            <span class="badge">Python</span><span class="badge">FastAPI</span><span class="badge">REST APIs</span>
+            <span class="badge">SQLAlchemy</span><span class="badge">JWT</span><span class="badge">bcrypt</span>
+            <span class="badge">Pydantic v2</span><span class="badge" data-i18n="skills.layered">Arquitetura em camadas</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3><span class="sw"></span><span data-i18n="skills.database">Banco de Dados</span></h3>
+          <div class="badges">
+            <span class="badge">PostgreSQL</span><span class="badge">MySQL</span><span class="badge">SQL Server</span>
+            <span class="badge">SQL</span><span class="badge">CTEs</span><span class="badge">Window Functions</span>
+            <span class="badge">Star Schema</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3><span class="sw"></span><span data-i18n="skills.devops">DevOps &amp; Testes</span></h3>
+          <div class="badges">
+            <span class="badge">Docker</span><span class="badge">pytest</span><span class="badge">Postman</span>
+            <span class="badge">Conventional Commits</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3><span class="sw"></span><span data-i18n="skills.tools">Ferramentas</span></h3>
+          <div class="badges">
+            <span class="badge">Git</span><span class="badge">GitHub</span><span class="badge">VS Code</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3><span class="sw"></span><span data-i18n="skills.frontend">Frontend</span></h3>
+          <div class="badges">
+            <span class="badge">HTML</span><span class="badge">CSS</span><span class="badge">JavaScript</span>
+            <span class="badge" data-i18n="skills.apiIntegration">Integração com APIs REST</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3><span class="sw"></span><span data-i18n="skills.data">Dados</span></h3>
+          <div class="badges">
+            <span class="badge">Power BI</span><span class="badge">DAX</span><span class="badge">Pandas</span>
+            <span class="badge">Excel</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3><span class="sw"></span><span data-i18n="skills.otherBackends">Outros Backends</span></h3>
+          <div class="badges">
+            <span class="badge">Java</span><span class="badge">Spring Boot</span><span class="badge">Spring Data JPA</span>
+            <span class="badge">Hibernate</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3><span class="sw"></span><span data-i18n="skills.languages">Idiomas</span></h3>
+          <div class="badges">
+            <span class="badge" data-i18n="skills.langPt">Português — nativo</span><span class="badge" data-i18n="skills.langLibras">Libras — fluente</span>
+            <span class="badge" data-i18n="skills.langEn">Inglês — intermediário</span><span class="badge" data-i18n="skills.langEs">Espanhol — intermediário</span>
+            <span class="badge" data-i18n="skills.langAsl">ASL — intermediário</span>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- HABILIDADES -->
-    <section class="habilidades" id="habilidades">
-      <h2 class="titulo-secao" data-pt="Minhas <span>Habilidades</span>" data-en="My <span>Skills</span>">Minhas <span>Habilidades</span></h2>
-      <div class="habilidades-grid">
+  <!-- ================= ÁREAS / PROJETOS ================= -->
+  <section id="projetos" aria-labelledby="projetos-title">
+    <div class="wrap">
+      <div class="eyebrow"><span class="num">03</span> <span data-i18n="projects.eyebrow">Áreas de atuação</span></div>
+      <h2 class="title" id="projetos-title" data-i18n="projects.title">Projetos por área</h2>
+      <p class="lede" data-i18n="projects.lede">Projetos reais, organizados pela frente de trabalho principal de cada um.</p>
 
-        <div class="habilidade-card">
-          <i class='bx bxl-python'></i>
-          <h3>Python</h3>
-          <span class="nivel" data-pt="Projetos práticos" data-en="Practical projects">Projetos práticos</span>
-        </div>
-
-        <div class="habilidade-card">
-          <i class='bx bxl-java'></i>
-          <h3>Java</h3>
-          <span class="nivel" data-pt="Em aprendizado" data-en="In progress">Em aprendizado</span>
-        </div>
-
-        <div class="habilidade-card">
-          <i class='bx bx-data'></i>
-          <h3>SQL Server</h3>
-          <span class="nivel" data-pt="Projetos práticos" data-en="Practical projects">Projetos práticos</span>
-        </div>
-
-        <div class="habilidade-card">
-          <i class='bx bxl-html5'></i>
-          <h3>HTML & CSS</h3>
-          <span class="nivel" data-pt="Uso frequente" data-en="Daily use">Uso frequente</span>
-        </div>
-
-        <div class="habilidade-card">
-          <i class='bx bxl-javascript'></i>
-          <h3>JavaScript</h3>
-          <span class="nivel" data-pt="Projetos práticos" data-en="Practical projects">Projetos práticos</span>
-        </div>
-
-        <div class="habilidade-card">
-          <i class='bx bxl-git'></i>
-          <h3>Git & GitHub</h3>
-          <span class="nivel" data-pt="Uso frequente" data-en="Daily use">Uso frequente</span>
-        </div>
-
+      <div class="tabs" role="tablist" aria-label="Áreas de atuação">
+        <button class="tab" role="tab" aria-selected="true" aria-controls="panel-backend" id="tab-backend" data-i18n="projects.tabBackend">Backend</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-frontend" id="tab-frontend" data-i18n="projects.tabFrontend">Frontend</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-fullstack" id="tab-fullstack" data-i18n="projects.tabFullstack">Full Stack</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-data" id="tab-data" data-i18n="projects.tabData">Data Analytics</button>
       </div>
-    </section>
 
-    <!-- PORTFÓLIO -->
-    <section class="portfolio" id="portfolio">
-      <h2 class="titulo-secao" data-pt="Meu <span>Portfólio</span>" data-en="My <span>Portfolio</span>">Meu <span>Portfólio</span></h2>
-      <div class="portfolio-grid">
+      <!-- BACKEND -->
+      <div class="tab-panel active" id="panel-backend" role="tabpanel" aria-labelledby="tab-backend">
+        <p class="area-desc" data-i18n="projects.descBackend">APIs REST em Python (FastAPI) e Java (Spring Boot), com autenticação, testes e arquitetura em camadas.</p>
+        <div class="project-grid">
 
-        <div class="portfolio-card sem-imagem">
-          <div class="card-icone"><i class='bx bx-data'></i></div>
-          <div class="portfolio-info">
-            <h3 data-pt="Data Warehouse Curva ABC" data-en="Data Warehouse ABC Curve">Data Warehouse Curva ABC</h3>
-            <p data-pt="Segmentação de clientes em classes A, B e C com base no impacto na receita, usando SQL Server, CTEs e views."
-               data-en="Customer segmentation into A, B and C classes based on revenue impact, using SQL Server, CTEs and views.">
-              Segmentação de clientes em classes A, B e C com base no
-              impacto na receita, usando SQL Server, CTEs e views.
+          <article class="pcard">
+            <div class="pcard-top"><h4>TaskFlow API</h4><span class="status-tag status-dev" data-i18n="status.dev">Em desenvolvimento</span></div>
+            <p class="p-line"><b data-i18n="label.problem">Problema:</b> <span data-i18n="proj.taskflow.problem">organizar tarefas com endpoints CRUD confiáveis e cobertos por testes.</span></p>
+            <p class="p-line"><b data-i18n="label.solution">Solução:</b> <span data-i18n="proj.taskflow.solution">API REST construída de forma incremental, com foco em qualidade de código e testabilidade; suíte de testes com pytest e containerização com Docker. Desenvolvido integralmente em inglês.</span></p>
+            <p class="p-line"><b data-i18n="label.architecture">Arquitetura:</b> <span data-i18n="proj.taskflow.arch">camadas (Models, Schemas, Services, Routers), versionamento com Conventional Commits.</span></p>
+            <div class="stack"><span>Python</span><span>FastAPI</span><span>SQLAlchemy 2.0</span><span>PostgreSQL</span><span>Docker</span><span>pytest</span></div>
+            <div class="pcard-links"><a href="https://github.com/rauladrixdev/taskflow-api" target="_blank" rel="noopener">GitHub ↗</a></div>
+          </article>
+
+          <article class="pcard">
+            <div class="pcard-top"><h4>Auth Customer API</h4><span class="status-tag status-done" data-i18n="status.done">Concluído</span></div>
+            <p class="p-line"><b data-i18n="label.problem">Problema:</b> <span data-i18n="proj.auth.problem">login seguro de usuários, com hashing de senha e emissão de tokens.</span></p>
+            <p class="p-line"><b data-i18n="label.solution">Solução:</b> <span data-i18n="proj.auth.solution">API de autenticação em FastAPI com JWT, bcrypt e validação via Pydantic v2.</span></p>
+            <p class="p-line"><b data-i18n="label.architecture">Arquitetura:</b> <span data-i18n="proj.auth.arch">refatorada de uma estrutura plana para camadas (Models, Schemas, Services, Routers).</span></p>
+            <div class="stack"><span>Python</span><span>FastAPI</span><span>SQLAlchemy</span><span>PostgreSQL</span><span>JWT</span><span>Pydantic v2</span></div>
+            <div class="pcard-links"><a href="https://github.com/rauladrixdev/auth-customer-api" target="_blank" rel="noopener">GitHub ↗</a></div>
+          </article>
+
+          <article class="pcard">
+            <div class="pcard-top"><h4>Employee Management API</h4><span class="status-tag status-done" data-i18n="status.done">Concluído</span></div>
+            <p class="p-line"><b data-i18n="label.problem">Problema:</b> <span data-i18n="proj.emp.problem">controlar dados de colaboradores com operações CRUD completas.</span></p>
+            <p class="p-line"><b data-i18n="label.solution">Solução:</b> <span data-i18n="proj.emp.solution">API REST em Java/Spring Boot com tratamento de exceções customizado e documentação bilíngue (PT/EN).</span></p>
+            <p class="p-line"><b data-i18n="label.architecture">Arquitetura:</b> <span data-i18n="proj.emp.arch">camadas (Controller, Service, Repository, DTO).</span></p>
+            <div class="stack"><span>Java</span><span>Spring Boot</span><span>Spring Data JPA</span><span>Hibernate</span><span>MySQL</span><span>Maven</span></div>
+            <div class="pcard-links"><a href="https://github.com/rauladrixdev/sistema-funcionarios-backend" target="_blank" rel="noopener">GitHub ↗</a></div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- FRONTEND -->
+      <div class="tab-panel" id="panel-frontend" role="tabpanel" aria-labelledby="tab-frontend" hidden>
+        <p class="area-desc" data-i18n="projects.descFrontend">Interfaces em HTML, CSS e JavaScript, incluindo consumo de APIs REST.</p>
+        <div class="project-grid">
+
+          <article class="pcard">
+            <div class="pcard-top"><h4>SignR</h4><span class="status-tag status-dev" data-i18n="status.dev">Em desenvolvimento</span></div>
+            <p class="p-line"><b data-i18n="label.problem">Problema:</b> <span data-i18n="proj.signr.problem">tornar o aprendizado de Libras mais consistente ao longo do tempo.</span></p>
+            <p class="p-line"><b data-i18n="label.solution">Solução:</b> <span data-i18n="proj.signr.solution">aplicação web de aprendizado de Libras com gamificação — XP, sequência diária e repetição espaçada — construída sem frameworks, apenas HTML, CSS e JavaScript.</span></p>
+            <div class="stack"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+          </article>
+
+          <article class="pcard">
+            <div class="pcard-top"><h4><span data-i18n="proj.ilFront.title">Interface do InterLibras AI</span></h4><span class="status-tag status-dev" data-i18n="status.dev">Em desenvolvimento</span></div>
+            <p class="p-line"><b data-i18n="label.problem">Problema:</b> <span data-i18n="proj.ilFront.problem">apresentar perfis, agenda e chat de forma simples para usuários surdos e ouvintes.</span></p>
+            <p class="p-line"><b data-i18n="label.solution">Solução:</b> <span data-i18n="proj.ilFront.solution">camada de frontend em HTML, CSS e JavaScript integrada à API em FastAPI.</span></p>
+            <div class="stack"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- FULL STACK -->
+      <div class="tab-panel" id="panel-fullstack" role="tabpanel" aria-labelledby="tab-fullstack" hidden>
+        <p class="area-desc" data-i18n="projects.descFullstack">Projetos ponta a ponta: backend, banco de dados, regras de negócio e frontend integrados.</p>
+        <div class="project-grid">
+
+          <article class="pcard">
+            <div class="pcard-top"><h4>InterLibras AI</h4><span class="status-tag status-dev" data-i18n="status.dev">Em desenvolvimento</span></div>
+            <p class="p-line"><b data-i18n="label.backend">Backend:</b> <span data-i18n="proj.il.back">FastAPI, com autenticação JWT, agendamentos com regras de negócio e gerenciamento de disponibilidade.</span></p>
+            <p class="p-line"><b data-i18n="label.database">Banco de dados:</b> PostgreSQL via SQLAlchemy. <b data-i18n="label.frontend">Frontend:</b> HTML, CSS, JavaScript.</p>
+            <div class="stack"><span>Python</span><span>FastAPI</span><span>SQLAlchemy</span><span>PostgreSQL</span><span>HTML/CSS/JS</span></div>
+            <div class="pcard-links"><a href="#interlibras" data-i18n="projects.seeDetails">Ver case study ↓</a></div>
+          </article>
+
+          <article class="pcard">
+            <div class="pcard-top"><h4>TaskFlow API</h4><span class="status-tag status-dev" data-i18n="status.dev">Em desenvolvimento</span></div>
+            <p class="p-line"><b data-i18n="label.backend">Backend:</b> <span data-i18n="proj.taskflow.fsback">FastAPI com arquitetura em camadas.</span></p>
+            <p class="p-line"><b data-i18n="label.quality">Qualidade:</b> <span data-i18n="proj.taskflow.fsquality">testes automatizados com pytest e containerização com Docker.</span></p>
+            <div class="stack"><span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>Docker</span></div>
+            <div class="pcard-links"><a href="https://github.com/rauladrixdev/taskflow-api" target="_blank" rel="noopener">GitHub ↗</a></div>
+          </article>
+
+          <article class="pcard">
+            <div class="pcard-top"><h4>Auth Customer API</h4><span class="status-tag status-done" data-i18n="status.done">Concluído</span></div>
+            <p class="p-line"><b data-i18n="label.backend">Backend:</b> <span data-i18n="proj.auth.fsback">FastAPI com autenticação JWT e bcrypt.</span></p>
+            <p class="p-line"><b data-i18n="label.database">Banco de dados:</b> PostgreSQL via SQLAlchemy.</p>
+            <div class="stack"><span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>JWT</span></div>
+            <div class="pcard-links"><a href="https://github.com/rauladrixdev/auth-customer-api" target="_blank" rel="noopener">GitHub ↗</a></div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- DATA -->
+      <div class="tab-panel" id="panel-data" role="tabpanel" aria-labelledby="tab-data" hidden>
+        <p class="area-desc" data-i18n="projects.descData">Modelagem, análise e visualização de dados com SQL, Python e Power BI.</p>
+        <div class="project-grid">
+
+          <article class="pcard">
+            <div class="pcard-top"><h4><span data-i18n="proj.abc.title">Segmentação de Clientes — Curva ABC</span></h4><span class="status-tag status-done" data-i18n="status.done">Concluído</span></div>
+            <p class="p-line"><b data-i18n="label.problem">Problema:</b> <span data-i18n="proj.abc.problem">identificar quais clientes concentram maior valor para o negócio.</span></p>
+            <p class="p-line"><b data-i18n="label.solution">Solução:</b> <span data-i18n="proj.abc.solution">análise de dados em SQL Server usando CTEs e Window Functions para segmentar clientes pela metodologia Curva ABC.</span></p>
+            <div class="stack"><span>SQL Server</span><span>CTEs</span><span>Window Functions</span></div>
+          </article>
+
+          <article class="pcard">
+            <div class="pcard-top"><h4><span data-i18n="proj.sales.title">Dashboard de Vendas</span></h4><span class="status-tag status-done" data-i18n="status.done">Concluído</span></div>
+            <p class="p-line"><b data-i18n="label.problem">Problema:</b> <span data-i18n="proj.sales.problem">acompanhar indicadores comerciais de forma visual e centralizada.</span></p>
+            <p class="p-line"><b data-i18n="label.solution">Solução:</b> <span data-i18n="proj.sales.solution">dashboard interativo em Power BI para análise de indicadores de vendas.</span></p>
+            <div class="stack"><span>Power BI</span><span>DAX</span></div>
+          </article>
+
+          <article class="pcard">
+            <div class="pcard-top"><h4><span data-i18n="proj.olist.title">Análise de Performance Logística — E-commerce Olist</span></h4><span class="status-tag status-done" data-i18n="status.done">Concluído</span></div>
+            <p class="p-line"><b data-i18n="label.problem">Problema:</b> <span data-i18n="proj.olist.problem">auditar dados de uma operação real de e-commerce para mapear gargalos logísticos estaduais e medir o impacto financeiro dos atrasos de entrega.</span></p>
+            <p class="p-line"><b data-i18n="label.solution">Solução:</b> <span data-i18n="proj.olist.solution">pipeline de dados completo em Python — carga, limpeza de nulos e inconsistências, cruzamento de tabelas e agregações — com visualizações geradas em Seaborn e Matplotlib.</span></p>
+            <p class="p-line"><b data-i18n="label.insight">Principais insights:</b> <span data-i18n="proj.olist.insight">Alagoas lidera atrasos no país (20,8%); o Rio de Janeiro mostra ineficiência operacional mesmo com frete barato e proximidade; entregas com mais de 50 dias de atraso custaram, em média, 39,8% a mais de frete.</span></p>
+            <div class="stack"><span>Python</span><span>Pandas</span><span>Seaborn</span><span>Matplotlib</span></div>
+            <div class="pcard-links"><a href="https://github.com/rauladrixdev/portfolio_olist_ecommerce" target="_blank" rel="noopener">GitHub ↗</a></div>
+          </article>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CASE STUDY — INTERLIBRAS AI ================= -->
+  <section class="featured" id="interlibras" aria-labelledby="feat-title">
+    <div class="wrap">
+      <div class="eyebrow"><span class="num">04</span> <span data-i18n="il.eyebrow">Case study</span></div>
+
+      <div class="feat-card">
+        <div class="feat-head">
+          <span class="feat-status"><span class="dot"></span> <span data-i18n="status.dev">Em desenvolvimento</span></span>
+          <div class="feat-title" id="feat-title">InterLibras AI</div>
+          <p class="feat-sub" data-i18n="il.sub">Plataforma de acessibilidade em Libras — projeto pessoal, nascido de uma dificuldade que eu mesmo enfrento.</p>
+        </div>
+
+        <div class="feat-body-full">
+
+          <div class="feat-block">
+            <h5 data-i18n="il.contextLabel">Contexto</h5>
+            <p data-i18n="il.context">
+              Sou uma pessoa surda. O InterLibras AI nasceu da minha própria experiência: a dificuldade real de
+              encontrar profissionais que se comuniquem em Libras no dia a dia.
             </p>
-            <div class="portfolio-tags">
-              <span>SQL Server</span><span>Data Warehouse</span><span>CTE</span>
-            </div>
-            <a href="https://github.com/rauladrixdev/dw-segmentacao-clientes-abc" target="_blank" class="btn-card"
-               data-pt="Ver no GitHub" data-en="View on GitHub">Ver no GitHub</a>
           </div>
-        </div>
 
-        <div class="portfolio-card sem-imagem">
-          <div class="card-icone"><i class='bx bx-server'></i></div>
-          <div class="portfolio-info">
-            <h3>Auth Customer API</h3>
-            <p data-pt="API REST de autenticação de clientes desenvolvida em Python, com endpoints de registro, login e validação de token."
-               data-en="Customer authentication REST API built with Python, FastAPI and JWT — registration, login and token validation endpoints.">
-              API REST de autenticação de clientes desenvolvida em Python,
-              com endpoints de registro, login e validação de token.
+          <div class="feat-block">
+            <h5 data-i18n="il.problemsLabel">Problemas observados</h5>
+            <p data-i18n="il.problemsIntro">Pela minha vivência e pela de outras pessoas surdas, é comum enfrentar dificuldades para:</p>
+            <ul class="il-list">
+              <li data-i18n="il.p1">encontrar médicos, psicólogos, advogados ou professores que saibam Libras</li>
+              <li data-i18n="il.p2">encontrar intérpretes ou profissionais bilíngues disponíveis</li>
+              <li data-i18n="il.p3">depender constantemente de terceiros para intermediar a comunicação</li>
+              <li data-i18n="il.p4">procurar profissionais por grupos de redes sociais ou indicação, sem um canal centralizado</li>
+              <li data-i18n="il.p5">gastar tempo considerável nessa busca — o que, em alguns casos, leva a desistir do atendimento</li>
+            </ul>
+            <p class="il-note" data-i18n="il.problemsNote">Isso reduz a autonomia em situações do cotidiano. Não tenho números para quantificar o quanto — é uma observação da minha vivência, não uma estatística.</p>
+          </div>
+
+          <div class="feat-block">
+            <h5 data-i18n="il.goalLabel">Objetivo</h5>
+            <p data-i18n="il.goal">
+              Promover mais autonomia para pessoas surdas, facilitando a busca por profissionais que se comuniquem em
+              Libras — e, quando possível, reduzir a necessidade de um intérprete quando já existe um profissional apto
+              a atender diretamente. Intérpretes continuam essenciais em muitos contextos; o objetivo é ampliar opções,
+              não substituí-los.
             </p>
-            <div class="portfolio-tags">
-              <span>Python</span><span>FastAPI</span><span>JWT</span><span>Backend</span>
-            </div>
-            <a href="https://github.com/rauladrixdev/auth-customer-api" target="_blank" class="btn-card"
-               data-pt="Ver no GitHub" data-en="View on GitHub">Ver no GitHub</a>
           </div>
-        </div>
 
-        <div class="portfolio-card sem-imagem">
-          <div class="card-icone"><i class='bx bx-bar-chart-alt-2'></i></div>
-          <div class="portfolio-info">
-            <h3 data-pt="Dashboard de Vendas" data-en="Sales Dashboard">Dashboard de Vendas</h3>
-            <p data-pt="Análise de vendas com KPIs, distribuição por estado e canais. Desenvolvido em Power BI com modelagem em estrela."
-               data-en="Sales analysis with KPIs, distribution by state and channels. Built in Power BI with star schema modelling.">
-              Análise de vendas com KPIs, distribuição por estado
-              e canais. Desenvolvido em Power BI com modelagem em estrela.
+          <div class="feat-block">
+            <h5 data-i18n="il.solutionLabel">Solução — em desenvolvimento</h5>
+            <p data-i18n="il.solutionIntro">O projeto ainda não é um produto finalizado. Os módulos que já existem no backend:</p>
+            <div class="feat-arch">
+              <span data-i18n="il.mAuth">Autenticação (JWT)</span>
+              <span data-i18n="il.mProfiles">Cadastro e perfis públicos</span>
+              <span data-i18n="il.mSchedule">Agenda e disponibilidade</span>
+              <span data-i18n="il.mBusiness">Agendamentos com regras de negócio</span>
+              <span data-i18n="il.mChat">Chat entre usuários</span>
+              <span data-i18n="il.mReviews">Avaliações</span>
+            </div>
+          </div>
+
+          <div class="feat-block">
+            <h5 data-i18n="il.aiLabel">Frente de Inteligência Artificial</h5>
+            <p data-i18n="il.aiText">
+              Existe uma frente de IA no projeto, mas ela ainda está em fase de pesquisa — não implementada.
+              Estão sendo estudados recursos como avatar 3D em Libras e automações voltadas à acessibilidade
+              e à comunicação. <strong data-i18n="il.aiWarning">Esses recursos ainda estão em desenvolvimento e não fazem parte da versão atual.</strong>
             </p>
-            <div class="portfolio-tags">
-              <span>Power BI</span><span>DAX</span><span>Star Schema</span>
-            </div>
-            <a href="https://github.com/rauladrixdev/dashboard-vendas-powerbi" target="_blank" class="btn-card"
-               data-pt="Ver no GitHub" data-en="View on GitHub">Ver no GitHub</a>
           </div>
-        </div>
 
-        <div class="portfolio-card sem-imagem">
-          <div class="card-icone"><i class='bx bx-code-alt'></i></div>
-          <div class="portfolio-info">
-            <h3 data-pt="Portfólio Responsivo" data-en="Responsive Portfolio">Portfólio Responsivo</h3>
-            <p data-pt="Site pessoal com splash screen, animações CSS, efeito de digitação e design responsivo."
-               data-en="Personal site with splash screen, CSS animations, typing effect and responsive design.">
-              Site pessoal com splash screen, animações CSS,
-              efeito de digitação e design responsivo.
+          <div class="feat-block">
+            <h5 data-i18n="il.archLabel">Arquitetura</h5>
+            <div class="feat-arch">
+              <span>Models</span><span>Schemas</span><span>Services</span><span>Routers</span><span>SQLAlchemy</span><span>PostgreSQL</span>
+            </div>
+          </div>
+
+          <div class="feat-block">
+            <h5 data-i18n="il.techLabel">Tecnologias</h5>
+            <div class="feat-arch">
+              <span>Python</span><span>FastAPI</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Git</span>
+            </div>
+          </div>
+
+          <div class="feat-block">
+            <h5 data-i18n="il.impactLabel">Impacto esperado</h5>
+            <p data-i18n="il.impactText">
+              Ampliar autonomia, facilitar o acesso à informação e a busca por profissionais, e melhorar a
+              experiência da comunidade surda ao buscar atendimento. São objetivos do projeto — não resultados
+              medidos, já que ainda está em desenvolvimento.
             </p>
-            <div class="portfolio-tags">
-              <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Frontend</span>
-            </div>
-            <a href="https://rauladrixdev.github.io/" target="_blank" class="btn-card"
-               data-pt="Ver o Site" data-en="View Site">Ver o Site</a>
+          </div>
+
+          <div class="feat-block">
+            <h5 data-i18n="il.learnLabel">Aprendizados</h5>
+            <p data-i18n="il.learnText">
+              Construir o InterLibras AI tem sido, até aqui, meu maior exercício de arquitetura de software:
+              modelagem de banco de dados, organização de regras de negócio, design de APIs REST em camadas com
+              FastAPI, e também pensar em experiência do usuário e acessibilidade desde a concepção — não como
+              algo adicionado depois.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TIMELINE ================= -->
+  <section aria-labelledby="timeline-title">
+    <div class="wrap">
+      <div class="eyebrow"><span class="num">05</span> <span data-i18n="timeline.eyebrow">Trajetória</span></div>
+      <h2 class="title" id="timeline-title" data-i18n="timeline.title">Formação e marcos</h2>
+      <p class="lede" data-i18n="timeline.lede">Ordem cronológica de formação, certificações e evolução dos projetos.</p>
+
+      <ol class="timeline">
+        <li class="t-item">
+          <div class="t-date" data-i18n="timeline.d1">Em andamento</div>
+          <div class="t-title" data-i18n="timeline.t1">Análise e Desenvolvimento de Sistemas — UNICID</div>
+          <div class="t-desc" data-i18n="timeline.x1">Cursando o 4º semestre, com conclusão prevista para dezembro de 2026.</div>
+        </li>
+        <li class="t-item">
+          <div class="t-date" data-i18n="timeline.d2">Março 2026</div>
+          <div class="t-title" data-i18n="timeline.t2">Palestra "Data Center: A Casa da Internet" — UNICID</div>
+          <div class="t-desc" data-i18n="timeline.x2">Participação, carga horária de 3 horas.</div>
+        </li>
+        <li class="t-item">
+          <div class="t-date" data-i18n="timeline.d3">Projetos em construção</div>
+          <div class="t-title">TaskFlow API, InterLibras AI, SignR</div>
+          <div class="t-desc" data-i18n="timeline.x3">Projetos pessoais em desenvolvimento contínuo, evoluindo em paralelo aos estudos.</div>
+        </li>
+        <li class="t-item">
+          <div class="t-date" data-i18n="timeline.d4">Projetos concluídos</div>
+          <div class="t-title">Auth Customer API, Employee Management API, Curva ABC, Dashboard de Vendas</div>
+          <div class="t-desc" data-i18n="timeline.x4">Entregues como projetos de portfólio, cobrindo backend, dados e visualização.</div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= CURRÍCULO ================= -->
+  <section id="curriculo" aria-labelledby="resume-title">
+    <div class="wrap">
+      <div class="eyebrow"><span class="num">06</span> <span data-i18n="resume.eyebrow">Currículo</span></div>
+      <h2 class="title" id="resume-title" data-i18n="resume.title">Currículo completo</h2>
+      <p class="lede" data-i18n="resume.lede">Mesmo conteúdo deste site, em formato de documento.</p>
+
+      <div class="resume-viewer">
+        <div class="resume-viewer-bar">
+          <span class="resume-viewer-label" data-i18n="resume.cardTitle">Raul Adriano Jardim — CV</span>
+          <a href="assets/Raul_Adriano_Jardim_CV.pdf" target="_blank" rel="noopener" class="btn btn-ghost btn-sm" data-i18n="resume.openTab">Abrir em nova aba ↗</a>
+        </div>
+        <iframe class="resume-frame" src="assets/Raul_Adriano_Jardim_CV.pdf" title="Currículo — Raul Adriano Jardim" loading="lazy"></iframe>
+        <noscript><a href="assets/Raul_Adriano_Jardim_CV.pdf">Ver currículo (PDF)</a></noscript>
+      </div>
+      <p class="resume-note" data-i18n="resume.note">No momento existe apenas a versão em português. Versões em inglês e espanhol serão adicionadas quando estiverem prontas.</p>
+    </div>
+  </section>
+
+  <!-- ================= GITHUB ================= -->
+  <section id="github" aria-labelledby="gh-title">
+    <div class="wrap">
+      <div class="eyebrow"><span class="num">07</span> GitHub</div>
+      <h2 class="title" id="gh-title" data-i18n="gh.title">Repositórios</h2>
+      <p class="lede" data-i18n="gh.lede">Código aberto dos projetos com repositório confirmado.</p>
+
+      <div class="gh-grid">
+        <a class="gh-card" href="https://github.com/rauladrixdev/taskflow-api" target="_blank" rel="noopener">
+          <div class="name">taskflow-api</div>
+          <div class="desc" data-i18n="gh.taskflow">API REST de gerenciamento de tarefas com testes automatizados e Docker.</div>
+          <div class="lang"><span class="lang-dot" style="background:#3572A5"></span>Python</div>
+        </a>
+        <a class="gh-card" href="https://github.com/rauladrixdev/auth-customer-api" target="_blank" rel="noopener">
+          <div class="name">auth-customer-api</div>
+          <div class="desc" data-i18n="gh.auth">API de autenticação com JWT, bcrypt e arquitetura em camadas.</div>
+          <div class="lang"><span class="lang-dot" style="background:#3572A5"></span>Python</div>
+        </a>
+        <a class="gh-card" href="https://github.com/rauladrixdev/sistema-funcionarios-backend" target="_blank" rel="noopener">
+          <div class="name">sistema-funcionarios-backend</div>
+          <div class="desc" data-i18n="gh.emp">API REST de gerenciamento de funcionários em Java/Spring Boot.</div>
+          <div class="lang"><span class="lang-dot" style="background:#B07219"></span>Java</div>
+        </a>
+        <a class="gh-card" href="https://github.com/rauladrixdev/rauladrixdev.github.io" target="_blank" rel="noopener">
+          <div class="name">rauladrixdev.github.io</div>
+          <div class="desc" data-i18n="gh.site">Código-fonte deste portfólio.</div>
+          <div class="lang"><span class="lang-dot" style="background:#E34C26"></span>HTML</div>
+        </a>
+        <a class="gh-card" href="https://github.com/rauladrixdev/portfolio_olist_ecommerce" target="_blank" rel="noopener">
+          <div class="name">portfolio_olist_ecommerce</div>
+          <div class="desc" data-i18n="gh.olist">Análise de performance logística e impacto financeiro no e-commerce, com Python e Pandas.</div>
+          <div class="lang"><span class="lang-dot" style="background:#3572A5"></span>Python</div>
+        </a>
+      </div>
+
+      <a class="gh-profile-link" href="https://github.com/rauladrixdev" target="_blank" rel="noopener" data-i18n="gh.profileLink">Ver todos os repositórios no GitHub ↗</a>
+    </div>
+  </section>
+
+  <!-- ================= CONTATO ================= -->
+  <section id="contato" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div class="eyebrow"><span class="num">08</span> <span data-i18n="contact.eyebrow">Contato</span></div>
+      <h2 class="title" id="contact-title" data-i18n="contact.title">Vamos conversar</h2>
+      <p class="lede" data-i18n="contact.lede">Aberto a oportunidades de estágio e posições júnior em Desenvolvimento Backend Python. E-mail e LinkedIn são as formas de contato mais rápidas.</p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div>
+            <div class="c-label" data-i18n="contact.emailLabel">E-mail</div>
+            <div class="c-value" id="emailValue">raum.adrix@icloud.com</div>
+          </div>
+          <div class="contact-actions">
+            <a class="btn btn-ghost btn-sm" href="mailto:raum.adrix@icloud.com" data-i18n="contact.send">Enviar</a>
+            <button class="btn btn-ghost btn-sm" id="copyEmail" aria-live="polite" data-i18n="contact.copy">Copiar</button>
           </div>
         </div>
-
-      </div>
-    </section>
-
-    <!-- CONTATO -->
-    <section class="contato" id="contato">
-      <h2 class="titulo-secao" data-pt="Entre em <span>Contato</span>" data-en="Get in <span>Touch</span>">Entre em <span>Contato</span></h2>
-      <div class="contato-container">
-
-        <div class="contato-info">
-          <div class="contato-item">
-            <i class='bx bx-envelope'></i>
-            <div>
-              <h3>Email</h3>
-              <p>raum.adrix@icloud.com</p>
-            </div>
+        <div class="contact-card">
+          <div>
+            <div class="c-label">LinkedIn</div>
+            <div class="c-value">linkedin.com/in/rauladriano</div>
           </div>
-          <div class="contato-item">
-            <i class='bx bxl-whatsapp'></i>
-            <div>
-              <h3>WhatsApp</h3>
-              <p data-pt="Disponível via LinkedIn" data-en="Available via LinkedIn">Disponível via LinkedIn</p>
-            </div>
-          </div>
-          <div class="contato-item">
-            <i class='bx bxl-linkedin'></i>
-            <div>
-              <h3>LinkedIn</h3>
-              <p>linkedin.com/in/raul-adriano</p>
-            </div>
-          </div>
-          <div class="contato-item">
-            <i class='bx bxl-github'></i>
-            <div>
-              <h3>GitHub</h3>
-              <p>github.com/rauladrixdev</p>
-            </div>
-          </div>
+          <a class="btn btn-ghost btn-sm" href="https://linkedin.com/in/rauladriano" target="_blank" rel="noopener" data-i18n="contact.open">Abrir</a>
         </div>
-
-        <div class="contato-form">
-          <input type="text"   data-placeholder-pt="Seu nome"      data-placeholder-en="Your name"    placeholder="Seu nome" />
-          <input type="email"  data-placeholder-pt="Seu email"     data-placeholder-en="Your email"   placeholder="Seu email" />
-          <textarea rows="5"   data-placeholder-pt="Sua mensagem"  data-placeholder-en="Your message" placeholder="Sua mensagem"></textarea>
-          <a href="mailto:raum.adrix@icloud.com" class="btn"
-             data-pt="Enviar por Email" data-en="Send Email">Enviar por Email</a>
+        <div class="contact-card">
+          <div>
+            <div class="c-label">GitHub</div>
+            <div class="c-value">github.com/rauladrixdev</div>
+          </div>
+          <a class="btn btn-ghost btn-sm" href="https://github.com/rauladrixdev" target="_blank" rel="noopener" data-i18n="contact.open">Abrir</a>
         </div>
-
+        <div class="contact-card">
+          <div>
+            <div class="c-label" data-i18n="contact.phoneLabel">Telefone</div>
+            <div class="c-value" id="phoneValue">(11) 96914-6214</div>
+          </div>
+          <button class="btn btn-ghost btn-sm" id="copyPhone" aria-live="polite" data-i18n="contact.copy">Copiar</button>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- RODAPÉ -->
-    <footer class="footer">
-      <p data-pt="Desenvolvido por <span>Raúl Adriano</span> © 2025"
-         data-en="Developed by <span>Raúl Adriano</span> © 2025">
-        Desenvolvido por <span>Raúl Adriano</span> © 2025
-      </p>
-      <div class="footer-redes">
-        <a href="https://linkedin.com/in/raul-adriano" target="_blank"><i class='bx bxl-linkedin'></i></a>
-        <a href="https://github.com/rauladrixdev" target="_blank"><i class='bx bxl-github'></i></a>
-      </div>
-    </footer>
+</main>
 
-  </div><!-- /main-site -->
+<footer class="wrap">
+  <div class="foot-inner">
+    <p><span id="footYear">2026</span> Raul Adriano Jardim. <span data-i18n="footer.truth">Todos os projetos e informações são reais.</span></p>
+    <div class="foot-links">
+      <a href="https://github.com/rauladrixdev" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://linkedin.com/in/rauladriano" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="#top" data-i18n="footer.top">Voltar ao topo ↑</a>
+    </div>
+  </div>
+</footer>
 
-  <script src="script.js"></script>
-
-</body>
-</html>
 <script src="script.js"></script>
 </body>
 </html>

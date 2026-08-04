@@ -1,0 +1,66 @@
+feat(portfolio): redesign website with i18n, accessibility, embedded résumé and project improvements
+
+## Summary
+Completely rebuilt the portfolio from a single HTML file into a modular static website focused on maintainability, accessibility, internationalization and performance.
+The update also introduces new project content, improved documentation, responsive enhancements and multiple bug fixes.
+
+## Added
+- Full PT / EN / ES internationalization
+- Embedded PDF résumé viewer
+- Dedicated InterLibras AI case study
+- Data Analytics project (Olist Logistics Performance Analysis)
+- Keyboard-accessible project tabs
+- Copy-to-clipboard actions
+- robots.txt
+- sitemap.xml
+- manifest.json
+- favicon.svg
+- Open Graph
+- Twitter Card
+- Schema.org Person
+- Canonical URL
+- Skip link
+- prefers-reduced-motion support
+
+## Changed
+- Refactored the project into:
+  - index.html
+  - styles.css
+  - script.js
+- Improved responsive layout (320–1920px)
+- Reorganized project sections
+- Updated résumé
+- Updated LinkedIn URL
+- Improved navigation
+- Improved accessibility semantics
+- Improved SEO metadata
+- Reworked mobile menu
+
+## Fixed
+- Mobile navigation height issue caused by backdrop-filter
+- Navbar wrapping on very small devices
+- Manifest filename compatibility
+- Incorrect GitHub repository links
+- Incorrect LinkedIn URL
+- PDF viewer behavior
+
+## Removed
+- Phone call CTA
+- Invalid GitHub repository references
+- Duplicated translation strings
+- Unused assets
+
+## Tested
+✔ Chrome
+✔ Edge
+✔ Firefox
+✔ Responsive layouts (320px–1920px)
+✔ Keyboard navigation
+✔ Dark mode persistence
+✔ Language switching
+✔ Embedded résumé
+✔ Copy-to-clipboard
+✔ Mobile navigation
+✔ Lighthouse
+
+No JavaScript console errors.
