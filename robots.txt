@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rauladrixdev.github.io/sitemap.xml
